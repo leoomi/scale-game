@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc2c3mvf50imk"]
+
+[ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scripts/player/Player.tscn" id="1_himam"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awc8g"]
+size = Vector2(40, 40)
+
+[node name="Main" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_himam")]
+position = Vector2(60, 215)
+floor_snap_length = 16.0
+
+[node name="World" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World"]
+position = Vector2(0, 238)
+scale = Vector2(21.2, 1)
+
+[node name="ColorRect" type="ColorRect" parent="World/StaticBody2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.00784314, 1, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_awc8g")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="World"]
+position = Vector2(0, 238)
+rotation = -1.5708
+scale = Vector2(21.2, 1)
+
+[node name="ColorRect" type="ColorRect" parent="World/StaticBody2D2"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.00784314, 1, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D2"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_awc8g")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="World"]
+position = Vector2(327, 224)
+rotation = -1.5708
+scale = Vector2(21.2, 1)
+
+[node name="ColorRect" type="ColorRect" parent="World/StaticBody2D4"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.00784314, 1, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D4"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_awc8g")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="World"]
+position = Vector2(315, 304)
+rotation = -0.785398
+scale = Vector2(21.2, 1)
+
+[node name="ColorRect" type="ColorRect" parent="World/StaticBody2D3"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.00784314, 1, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/StaticBody2D3"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_awc8g")

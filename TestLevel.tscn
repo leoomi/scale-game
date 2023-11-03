@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://sdmxv0xt8387"]
+
+[ext_resource type="PackedScene" uid="uid://bnog7mf5kyr1a" path="res://scenes/ThrowableObject.tscn" id="1_7art8"]
+[ext_resource type="PackedScene" uid="uid://c0dxj4iobbqha" path="res://scenes/Scale.tscn" id="1_uevap"]
+[ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="2_0i5j5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52kj3"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(321, 348)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+scale = Vector2(47.05, 1.365)
+shape = SubResource("RectangleShape2D_52kj3")
+
+[node name="Scale" parent="." instance=ExtResource("1_uevap")]
+
+[node name="Player" parent="." instance=ExtResource("2_0i5j5")]
+
+[node name="ThrowableObject" parent="." instance=ExtResource("1_7art8")]
+position = Vector2(212, 164)
+
+[node name="ThrowableObject2" parent="." instance=ExtResource("1_7art8")]
+position = Vector2(237, 164)
+
+[node name="ThrowableObject3" parent="." instance=ExtResource("1_7art8")]
+position = Vector2(221, 75)

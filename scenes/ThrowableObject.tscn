@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnog7mf5kyr1a"]
+
+[ext_resource type="Script" path="res://scripts/ThrowableObject.gd" id="1_b4ckj"]
+[ext_resource type="PackedScene" uid="uid://bkwjtmoxihqhi" path="res://scenes/Weight.tscn" id="3_mktys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdp35"]
+
+[node name="ThrowableObject" type="CharacterBody2D" groups=["Weight"]]
+script = ExtResource("1_b4ckj")
+
+[node name="Weight" parent="." instance=ExtResource("3_mktys")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tdp35")
+debug_color = Color(0.894118, 0, 0.780392, 0.419608)

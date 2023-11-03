@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkwjtmoxihqhi"]
+
+[ext_resource type="Script" path="res://scripts/debug/debug_info/WeightDebugUI.gd" id="2_vs027"]
+
+[sub_resource type="GDScript" id="GDScript_nto4h"]
+script/source = "class_name Weight
+extends Node
+
+@export var weight = 1
+@onready var character_body: CharacterBody2D = owner
+var weights_on_top = []
+
+signal weight_potentially_removed(weight: Weight)
+
+func handle_collisions_on_bottom():
+	if not owner.is_on_floor():
+		weight_potentially_removed.emit(self)
+		return
+
+	for i in range(owner.get_slide_collision_count()):
+		var collision = owner.get_slide_collision(i)
+		var collider = collision.get_collider()
+
+		if sign(collision.get_normal().y) != -1:
+			continue
+
+		if collider.is_in_group(\"Weight\"):
+			collider.weight.add_weight_object([self])
+
+func add_weight_object(weights):
+	for weight in weights:
+		if not weights_on_top.has(weight):
+			weights_on_top.append(weight)
+			weight.weight_potentially_removed.connect(on_weight_potentially_removed)
+
+func get_total_weight() -> float:
+	var total_weight = weight
+	
+	for weight in weights_on_top:
+		total_weight += weight.weight
+		
+	return total_weight
+
+func on_weight_potentially_removed(weight):
+	weights_on_top.erase(weight)
+	var removed_signal = weight.weight_potentially_removed as Signal
+
+	if removed_signal.is_connected(on_weight_potentially_removed):
+		removed_signal.disconnect(on_weight_potentially_removed)
+"
+
+[node name="Weight" type="Node"]
+script = SubResource("GDScript_nto4h")
+weight = null
+
+[node name="WeightDebug" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 231.0
+offset_top = 180.0
+offset_right = 271.0
+offset_bottom = 220.0
+script = ExtResource("2_vs027")
+
+[node name="Label" type="Label" parent="WeightDebug"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -12.0
+offset_right = 32.0
+offset_bottom = 14.0
+text = ":)"

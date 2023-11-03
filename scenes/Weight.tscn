@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkwjtmoxihqhi"]
+
+[ext_resource type="Script" path="res://scripts/Weight.gd" id="1_eewy1"]
+[ext_resource type="Script" path="res://scripts/debug/debug_info/WeightDebugUI.gd" id="2_vs027"]
+
+[node name="Weight" type="Node2D"]
+script = ExtResource("1_eewy1")
+
+[node name="WeightDebug" type="Control" parent="." node_paths=PackedStringArray("weight")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 231.0
+offset_top = 180.0
+offset_right = 271.0
+offset_bottom = 220.0
+script = ExtResource("2_vs027")
+weight = NodePath("..")
+
+[node name="Label" type="Label" parent="WeightDebug"]
+layout_mode = 0
+offset_left = -237.0
+offset_top = -191.0
+offset_right = -197.0
+offset_bottom = -165.0
+text = ":)"
