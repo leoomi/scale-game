@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdxpnd6o42sn2"]
 
-[ext_resource type="Script" path="res://scenes/Plate.gd" id="1_cte6s"]
+[ext_resource type="Script" path="res://scripts/Plate.gd" id="1_7484w"]
 [ext_resource type="PackedScene" uid="uid://bkwjtmoxihqhi" path="res://scenes/Weight.tscn" id="1_k3kiw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0gbn"]
 size = Vector2(107, 20)
 
 [node name="Plate" type="CharacterBody2D" groups=["Plate"]]
-script = ExtResource("1_cte6s")
+script = ExtResource("1_7484w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_o0gbn")

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cdxpnd6o42sn2" path="res://scenes/Plate.tscn" id="1_5myqs"]
 [ext_resource type="Script" path="res://scripts/Scale.gd" id="1_tswx3"]
-[ext_resource type="Script" path="res://scenes/ScaleDebug.gd" id="3_jgon3"]
+[ext_resource type="Script" path="res://scripts/debug/ScaleDebug.gd" id="3_pikri"]
 
 [node name="Scale" type="Node2D"]
 position = Vector2(317, 181)
@@ -12,6 +12,8 @@ script = ExtResource("1_tswx3")
 position = Vector2(-93, 52)
 
 [node name="Plate" parent="LeftPlate" instance=ExtResource("1_5myqs")]
+collision_layer = 3
+collision_mask = 0
 
 [node name="RightPlate" type="Node2D" parent="."]
 position = Vector2(88, 52)
@@ -25,7 +27,7 @@ offset_left = 231.0
 offset_top = 180.0
 offset_right = 271.0
 offset_bottom = 220.0
-script = ExtResource("3_jgon3")
+script = ExtResource("3_pikri")
 scale_object = NodePath("..")
 
 [node name="Label" type="Label" parent="ScaleDebug"]

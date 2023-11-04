@@ -18,12 +18,13 @@ shape = SubResource("RectangleShape2D_52kj3")
 [node name="Scale" parent="." instance=ExtResource("1_uevap")]
 
 [node name="Player" parent="." instance=ExtResource("2_0i5j5")]
+position = Vector2(319, 270)
 
 [node name="ThrowableObject" parent="." instance=ExtResource("1_7art8")]
-position = Vector2(212, 164)
+position = Vector2(198, 175)
 
 [node name="ThrowableObject2" parent="." instance=ExtResource("1_7art8")]
-position = Vector2(237, 164)
+position = Vector2(256, 174)
 
 [node name="ThrowableObject3" parent="." instance=ExtResource("1_7art8")]
-position = Vector2(221, 75)
+position = Vector2(229, 152)

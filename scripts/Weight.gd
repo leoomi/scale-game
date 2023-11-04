@@ -1,7 +1,7 @@
 class_name Weight
 extends Node
 
-@export var weight = 1
+@export var weight: int = 1
 @onready var character_body: CharacterBody2D = owner
 var weights_on_top = []
 
@@ -35,7 +35,7 @@ func add_weight_objects(weights):
 		if changed:
 			weight_changed.emit(weights)
 
-func get_total_weight() -> float:
+func get_total_weight() -> int:
 	var total_weight = weight
 	
 	for weight in weights_on_top:
@@ -45,6 +45,7 @@ func get_total_weight() -> float:
 
 func on_weight_potentially_removed(weight: Weight):
 	weights_on_top.erase(weight)
+	weight_changed.emit(weights_on_top)
 	var removed_signal = weight.weight_potentially_removed as Signal
 
 	if removed_signal.is_connected(on_weight_potentially_removed):

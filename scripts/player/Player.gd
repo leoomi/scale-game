@@ -15,6 +15,7 @@ extends CharacterBody2D
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var inventory: Inventory = $Inventory
 @onready var weight: Weight = $Weight
+@onready var interaction_area: Area2D = $InteractionArea
 
 signal weight_potentially_removed(player: Player)
 
@@ -130,6 +131,13 @@ func is_touching_wall(direction: float) -> bool:
 
 func handle_collisions_on_bottom():
 	weight.handle_collisions_on_bottom()
+
+func handle_interactions():
+	if Input.is_action_just_pressed("interact"):
+		for body in interaction_area.get_overlapping_bodies():
+			print("body: %s" % body)
+		for area in interaction_area.get_overlapping_areas():
+			print("area: %s" % area)
 
 func on_hurt(push_vector: Vector2):
 	velocity = push_vector

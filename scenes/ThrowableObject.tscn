@@ -1,15 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnog7mf5kyr1a"]
+[gd_scene load_steps=6 format=3 uid="uid://bnog7mf5kyr1a"]
 
-[ext_resource type="Script" path="res://scripts/ThrowableObject.gd" id="1_b4ckj"]
+[ext_resource type="Script" path="res://scripts/throwable_object/ThrowableObject.gd" id="1_wv2nq"]
+[ext_resource type="Script" path="res://scripts/state_machine/StateMachine.gd" id="3_avsdy"]
 [ext_resource type="PackedScene" uid="uid://bkwjtmoxihqhi" path="res://scenes/Weight.tscn" id="3_mktys"]
+[ext_resource type="Script" path="res://scripts/throwable_object/Idle.gd" id="4_l22j8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdp35"]
 
 [node name="ThrowableObject" type="CharacterBody2D" groups=["Weight"]]
-script = ExtResource("1_b4ckj")
+collision_layer = 5
+script = ExtResource("1_wv2nq")
 
 [node name="Weight" parent="." instance=ExtResource("3_mktys")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tdp35")
 debug_color = Color(0.894118, 0, 0.780392, 0.419608)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_avsdy")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_l22j8")
+
+[node name="PickedUp" type="Node" parent="StateMachine"]

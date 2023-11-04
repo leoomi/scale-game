@@ -6,4 +6,4 @@ extends Control
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	label.text = "%s" % scale_object.get_difference()
+	label.text = "%s" % scale_object.current_difference
