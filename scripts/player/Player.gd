@@ -16,10 +16,12 @@ extends CharacterBody2D
 @onready var inventory: Inventory = $Inventory
 @onready var weight: Weight = $Weight
 @onready var interaction_area: Area2D = $InteractionArea
+@onready var pickup_transform: RemoteTransform2D = $PickupRemoteTransform
 
 signal weight_potentially_removed(player: Player)
 
 var can_double_jump = false
+var picked_up_object: ThrowableObject
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -134,8 +136,11 @@ func handle_collisions_on_bottom():
 
 func handle_interactions():
 	if Input.is_action_just_pressed("interact"):
+		if picked_up_object != null:
+			picked_up_object.handle_picked_up_interaction(self)
 		for body in interaction_area.get_overlapping_bodies():
 			print("body: %s" % body)
+			body.handle_interaction(self)
 		for area in interaction_area.get_overlapping_areas():
 			print("area: %s" % area)
 
