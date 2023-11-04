@@ -23,5 +23,3 @@ initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("4_l22j8")
-
-[node name="PickedUp" type="Node" parent="StateMachine"]
