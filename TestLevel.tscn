@@ -22,20 +22,15 @@ position = Vector2(319, 270)
 
 [node name="ThrowableObject" parent="." instance=ExtResource("1_7art8")]
 position = Vector2(198, 175)
-max_fall_velocity = 250.0
-debug = false
 
 [node name="ThrowableObject2" parent="." instance=ExtResource("1_7art8")]
 position = Vector2(256, 174)
-max_fall_velocity = 250.0
-debug = false
 
 [node name="ThrowableObject3" parent="." instance=ExtResource("1_7art8")]
 position = Vector2(229, 152)
-max_fall_velocity = 250.0
-debug = false
 
 [node name="ThrowableObject4" parent="." instance=ExtResource("1_7art8")]
 position = Vector2(358, 308)
-max_fall_velocity = 250.0
-debug = false
+
+[node name="w" parent="." instance=ExtResource("1_7art8")]
+position = Vector2(358, 274)

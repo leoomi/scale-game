@@ -17,6 +17,7 @@ floor_block_on_wall = false
 script = ExtResource("1_wv2nq")
 
 [node name="Weight" parent="." instance=ExtResource("3_mktys")]
+weight = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tdp35")

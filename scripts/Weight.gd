@@ -54,3 +54,7 @@ func on_weight_potentially_removed(weight: Weight):
 
 func on_weight_changed(weights):
 	add_weight_objects(weights)
+
+func on_weight_picked_up():
+	weights_on_top = []
+	weight_potentially_removed.emit(self)

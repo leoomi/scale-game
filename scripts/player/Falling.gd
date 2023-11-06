@@ -28,5 +28,7 @@ func physics_update(delta: float):
 
 	player.handle_collisions_on_bottom()
 
+	player.handle_interactions()
+
 	player.move_and_slide()
 

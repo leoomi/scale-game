@@ -138,11 +138,13 @@ func handle_interactions():
 	if Input.is_action_just_pressed("interact"):
 		if picked_up_object != null:
 			picked_up_object.handle_picked_up_interaction(self)
+			return
+
 		for body in interaction_area.get_overlapping_bodies():
-			print("body: %s" % body)
 			body.handle_interaction(self)
-		for area in interaction_area.get_overlapping_areas():
-			print("area: %s" % area)
+			return
+		#for area in interaction_area.get_overlapping_areas():
+		#	area.handle_interaction(self)
 
 func on_hurt(push_vector: Vector2):
 	velocity = push_vector
