@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var max_fall_velocity = 250.0
 @export var debug = false
 @export var throw_velocity = Vector2(200, -200)
+@export var weight_value: int = 1
 @onready var weight: Weight = $Weight
 @onready var fsm: StateMachine = $StateMachine
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
@@ -12,7 +13,7 @@ var weights_on_top = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	weight.weight = weight_value
 
 func handle_collisions_on_bottom():
 	weight.handle_collisions_on_bottom()

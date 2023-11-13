@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var double_jump_velocity = -300
 @export var jump_velocity = -400.0
 @export var wall_jump_velocity = Vector2(150, -450)
+@export var weight_value: int = 1
 @export var debug = false
 @onready var fsm: StateMachine = $StateMachine
 @onready var animation: AnimationPlayer = $AnimationPlayer
@@ -25,6 +26,9 @@ var picked_up_object: ThrowableObject
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func _ready():
+	weight.weight = weight_value
 
 func flip(direction):
 	## this is confusing af: https://ask.godotengine.org/92282/why-my-character-scale-keep-changing?show=146969#a146969

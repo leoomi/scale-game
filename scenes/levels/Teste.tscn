@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://c55sy3r3ljfyl"]
+
+[ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="1_5u017"]
+[ext_resource type="PackedScene" uid="uid://bnog7mf5kyr1a" path="res://scenes/ThrowableObject.tscn" id="2_csqfx"]
+[ext_resource type="PackedScene" uid="uid://c0dxj4iobbqha" path="res://scenes/Scale.tscn" id="3_vkx8b"]
+[ext_resource type="PackedScene" uid="uid://cdxpnd6o42sn2" path="res://scenes/Plate.tscn" id="4_k2baa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sw4au"]
+
+[node name="Teste" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_5u017")]
+position = Vector2(-60.5, 110.5)
+weight_value = 2
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+scale = Vector2(1.00266, 0.997688)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-57, 208)
+scale = Vector2(24.96, 1)
+shape = SubResource("RectangleShape2D_sw4au")
+
+[node name="ThrowableObject" parent="." instance=ExtResource("2_csqfx")]
+position = Vector2(40, 72)
+weight_value = 3
+
+[node name="Scale" parent="." node_paths=PackedStringArray("left_plate", "right_plate") instance=ExtResource("3_vkx8b")]
+position = Vector2(288, 40)
+left_plate = NodePath("Plate")
+right_plate = NodePath("Plate2")
+
+[node name="Plate" parent="Scale" instance=ExtResource("4_k2baa")]
+position = Vector2(-88, 72)
+
+[node name="Plate2" parent="Scale" instance=ExtResource("4_k2baa")]
+position = Vector2(104, 72)

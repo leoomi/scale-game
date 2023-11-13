@@ -1,24 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0dxj4iobbqha"]
+[gd_scene load_steps=3 format=3 uid="uid://c0dxj4iobbqha"]
 
-[ext_resource type="PackedScene" uid="uid://cdxpnd6o42sn2" path="res://scenes/Plate.tscn" id="1_5myqs"]
 [ext_resource type="Script" path="res://scripts/Scale.gd" id="1_tswx3"]
 [ext_resource type="Script" path="res://scripts/debug/ScaleDebug.gd" id="3_pikri"]
 
 [node name="Scale" type="Node2D"]
 position = Vector2(317, 181)
 script = ExtResource("1_tswx3")
-
-[node name="LeftPlate" type="Node2D" parent="."]
-position = Vector2(-93, 52)
-
-[node name="Plate" parent="LeftPlate" instance=ExtResource("1_5myqs")]
-collision_layer = 3
-collision_mask = 0
-
-[node name="RightPlate" type="Node2D" parent="."]
-position = Vector2(88, 52)
-
-[node name="Plate" parent="RightPlate" instance=ExtResource("1_5myqs")]
 
 [node name="ScaleDebug" type="Control" parent="." node_paths=PackedStringArray("scale_object")]
 layout_mode = 3

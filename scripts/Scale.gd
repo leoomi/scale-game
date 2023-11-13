@@ -2,8 +2,8 @@ class_name Scale
 extends Node2D
 
 @export var move_distance = 20
-@onready var left_plate: Plate = $LeftPlate/Plate
-@onready var right_plate: Plate = $RightPlate/Plate
+@export var left_plate: Plate
+@export var right_plate: Plate
 var current_difference = 0
 var current_tween: Tween
 
