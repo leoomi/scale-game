@@ -11,9 +11,10 @@
 
 [node name="ThrowableObject" type="CharacterBody2D" groups=["Weight"]]
 collision_layer = 4
-collision_mask = 5
+collision_mask = 13
 floor_stop_on_slope = false
 floor_block_on_wall = false
+platform_on_leave = 2
 script = ExtResource("1_wv2nq")
 
 [node name="Weight" parent="." instance=ExtResource("3_mktys")]
