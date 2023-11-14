@@ -9,12 +9,14 @@ signal weight_potentially_removed(weight: Weight)
 signal weight_changed(weight: Weight)
 
 func handle_collisions_on_bottom():
-	if not owner.is_on_floor():
+	if not get_parent().is_on_floor():
 		weight_potentially_removed.emit(self)
 		return
 
-	for i in range(owner.get_slide_collision_count()):
-		var collision = owner.get_slide_collision(i)
+	for i in range(get_parent().get_slide_collision_count()):
+		var collision = get_parent().get_slide_collision(i)
+		if not collision:
+			continue
 		var collider = collision.get_collider()
 
 		if sign(collision.get_normal().y) != -1:
@@ -28,12 +30,20 @@ func add_weight_objects(weights):
 		var changed = false
 		if not weights_on_top.has(weight):
 			weights_on_top.append(weight)
+
+			if not weight.get_parent().is_in_group("Player"):
+				reparent_weight(weight)
+
 			weight.weight_potentially_removed.connect(on_weight_potentially_removed)
 			weight.weight_changed.connect(on_weight_changed)
 			changed = true
 
 		if changed:
 			weight_changed.emit(weights)
+
+func reparent_weight(weight: Weight):
+	var weight_object = weight.get_parent()
+	weight_object.reparent(get_parent(), true)
 
 func get_total_weight() -> int:
 	var total_weight = weight

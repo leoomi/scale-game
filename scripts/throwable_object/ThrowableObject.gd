@@ -22,6 +22,7 @@ func apply_gravity(delta: float):
 
 func handle_interaction(player: Player):
 	collision_shape.disabled = true
+	reparent(get_tree().get_current_scene(), true)
 	player.pickup_transform.set_remote_node(self.get_path())
 	player.picked_up_object = self
 	player.weight.weights_on_top = [weight]
