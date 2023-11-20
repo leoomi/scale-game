@@ -7,6 +7,10 @@
 size = Vector2(107, 20)
 
 [node name="Plate" type="CharacterBody2D" groups=["Plate"]]
+collision_mask = 0
+floor_stop_on_slope = false
+floor_block_on_wall = false
+platform_on_leave = 2
 script = ExtResource("1_7484w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

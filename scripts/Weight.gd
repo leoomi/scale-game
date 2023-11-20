@@ -56,5 +56,11 @@ func on_weight_changed(weights):
 	add_weight_objects(weights)
 
 func on_weight_picked_up():
+	for w in weights_on_top:
+		if w.owner is ThrowableObject:
+			var throwable_object = w.owner as ThrowableObject
+			throwable_object.fsm.transition_to("Falling")
+
 	weights_on_top = []
 	weight_potentially_removed.emit(self)
+	

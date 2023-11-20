@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var weights_on_top = []
+var current_tween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +20,8 @@ func handle_collisions_on_bottom():
 	weight.handle_collisions_on_bottom()
 
 func apply_gravity(delta: float):
-	velocity.y = move_toward(velocity.y, max_fall_velocity, delta * gravity)
+	if not is_on_floor():
+		velocity.y = move_toward(velocity.y, max_fall_velocity, delta * gravity)
 
 func handle_interaction(player: Player):
 	collision_shape.disabled = true
@@ -28,6 +30,7 @@ func handle_interaction(player: Player):
 	player.weight.weights_on_top = [weight]
 	player.weight.weight_changed.emit(player.weight.weights_on_top)
 	weight.on_weight_picked_up()
+
 	fsm.transition_to("PickedUp")
 
 func handle_picked_up_interaction(player: Player):
@@ -39,4 +42,28 @@ func handle_picked_up_interaction(player: Player):
 	velocity = throw_velocity
 	velocity.x = player.transform.x.x * velocity.x
 	transform.x.x = 1
+	
+	if current_tween != null and current_tween.is_running():
+		current_tween.kill()
 	fsm.transition_to("Thrown")
+
+func on_plate_moved(movement: float, duration: float):
+	var tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_CUBIC)
+	var vector = Vector2(0, movement)
+	tween.tween_property(self, "position", position + vector, duration)
+	current_tween = tween
+
+func should_idle():
+	if not is_on_floor():
+		return false
+
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+
+		if collider is Plate:
+			var plate = collider as Plate
+			if plate.current_tween == null or not plate.current_tween.is_running():
+				return true
+
+	return false

@@ -22,7 +22,6 @@ right_plate = NodePath("Plate2")
 
 [node name="Plate" parent="Scale" instance=ExtResource("4_xt0s8")]
 position = Vector2(-102, 54)
-weight_value = 2
 
 [node name="Plate2" parent="Scale" instance=ExtResource("4_xt0s8")]
 position = Vector2(104, 54)
@@ -35,11 +34,11 @@ position = Vector2(198, 175)
 weight_value = 2
 
 [node name="ThrowableObject2" parent="." instance=ExtResource("1_7art8")]
-position = Vector2(256, 174)
+position = Vector2(354, 252)
 scale = Vector2(1.01011, 1)
 
 [node name="ThrowableObject3" parent="." instance=ExtResource("1_7art8")]
-position = Vector2(229, 152)
+position = Vector2(357, 280)
 
 [node name="ThrowableObject4" parent="." instance=ExtResource("1_7art8")]
 position = Vector2(358, 308)

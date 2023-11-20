@@ -36,13 +36,7 @@ func check_and_move_plates():
 
 ## Clean this shit up later. Maybe add an impulse for the player object
 func move_plates(weight_delta: int) -> Tween:
-	var tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_CUBIC)
-	var up = Vector2(0, weight_delta * -15)
-	tween.tween_property(left_plate, "position", left_plate.position + up, 0.5)
-	tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_CUBIC)
-	var down = Vector2(0, weight_delta * 15)
-	tween.tween_property(right_plate, "position", right_plate.position + down, 0.5)
+	var tween = left_plate.move_plate(weight_delta * -15, 0.5)
+	right_plate.move_plate(weight_delta * 15, 0.5)
 	
 	return tween
-	
-	
