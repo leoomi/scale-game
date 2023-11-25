@@ -703,5 +703,6 @@ sources/0 = SubResource("TileSetAtlasSource_16dk1")
 sources/1 = SubResource("TileSetAtlasSource_ckdj2")
 
 [node name="DunegonTileMap" type="TileMap"]
+texture_filter = 1
 tile_set = SubResource("TileSet_kvsbh")
 format = 2

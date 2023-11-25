@@ -5,6 +5,7 @@
 
 [node name="Scale" type="Node2D"]
 script = ExtResource("1_tswx3")
+move_distance = null
 
 [node name="ScaleDebug" type="Control" parent="." node_paths=PackedStringArray("scale_object")]
 layout_mode = 3

@@ -18,6 +18,7 @@ shape = SubResource("RectangleShape2D_52kj3")
 
 [node name="Scale" parent="." node_paths=PackedStringArray("left_plate", "right_plate") instance=ExtResource("1_uevap")]
 position = Vector2(336, 169)
+move_distance = null
 left_plate = NodePath("Plate")
 right_plate = NodePath("Plate2")
 
@@ -46,6 +47,7 @@ position = Vector2(358, 308)
 
 [node name="Scale2" parent="." node_paths=PackedStringArray("left_plate", "right_plate") instance=ExtResource("1_uevap")]
 position = Vector2(341, 21)
+move_distance = null
 left_plate = NodePath("../Plate")
 right_plate = NodePath("../Plate2")
 
