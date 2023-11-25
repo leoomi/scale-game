@@ -2,7 +2,7 @@ class_name Plate
 extends CharacterBody2D
 
 @export var weight_value: int = 1
-@onready var weight: Weight = $Weight
+@export var weight: Weight
 var current_tween: Tween
 
 func _ready():

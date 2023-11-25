@@ -9,6 +9,8 @@ var current_tween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if left_plate == null or left_plate.weight == null:
+		print("F")
 	left_plate.weight.weight_changed.connect(on_weights_changed)
 	right_plate.weight.weight_changed.connect(on_weights_changed)
 

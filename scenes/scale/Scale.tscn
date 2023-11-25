@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://scripts/debug/ScaleDebug.gd" id="3_pikri"]
 
 [node name="Scale" type="Node2D"]
-position = Vector2(317, 181)
 script = ExtResource("1_tswx3")
 
 [node name="ScaleDebug" type="Control" parent="." node_paths=PackedStringArray("scale_object")]

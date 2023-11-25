@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://48cqswk6js05"]
+
+[ext_resource type="PackedScene" uid="uid://c3soxy87awjqt" path="res://scenes/DirtTileMap.tscn" id="1_wqkn5"]
+[ext_resource type="Script" path="res://scripts/Scale.gd" id="1_xjkex"]
+[ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="3_rid37"]
+[ext_resource type="Script" path="res://scripts/Teleporter.gd" id="5_pwxfr"]
+[ext_resource type="Texture2D" uid="uid://bs53s50oeljus" path="res://1x1.png" id="6_f646n"]
+[ext_resource type="PackedScene" uid="uid://bnog7mf5kyr1a" path="res://scenes/ThrowableObjects/ThrowableObject.tscn" id="7_iuo3g"]
+[ext_resource type="PackedScene" uid="uid://c0dxj4iobbqha" path="res://scenes/scale/Scale.tscn" id="8_ihxjd"]
+[ext_resource type="PackedScene" uid="uid://cdxpnd6o42sn2" path="res://scenes/scale/Plate.tscn" id="9_k30j0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx5n4"]
+size = Vector2(32, 64)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_xjkex")
+
+[node name="Player" parent="." instance=ExtResource("3_rid37")]
+position = Vector2(39, 307)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = -30
+limit_right = 1021
+limit_bottom = 380
+
+[node name="Teleporter" type="Area2D" parent="."]
+position = Vector2(576, 320)
+collision_mask = 8
+script = ExtResource("5_pwxfr")
+scene = "res://scenes/levels/Level1.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="Teleporter"]
+scale = Vector2(1.6, 3.2)
+texture = ExtResource("6_f646n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
+shape = SubResource("RectangleShape2D_tx5n4")
+
+[node name="ThrowableObject" parent="." instance=ExtResource("7_iuo3g")]
+position = Vector2(312, 200)
+
+[node name="ThrowableObject2" parent="." instance=ExtResource("7_iuo3g")]
+position = Vector2(352, 200)
+
+[node name="Scale" parent="." node_paths=PackedStringArray("left_plate", "right_plate") instance=ExtResource("8_ihxjd")]
+position = Vector2(240, 184)
+left_plate = NodePath("Plate")
+right_plate = NodePath("Plate")
+
+[node name="Plate" parent="Scale" instance=ExtResource("9_k30j0")]
+position = Vector2(-104, 96)
+
+[node name="Plate2" parent="Scale" instance=ExtResource("9_k30j0")]
+position = Vector2(96, 96)
+
+[node name="TileMap" parent="." instance=ExtResource("1_wqkn5")]
+layer_0/tile_data = PackedInt32Array(-1, 131073, 3, 65535, 393217, 5, 131071, 393217, 5, 196607, 393217, 5, 262143, 393217, 5, 327679, 393217, 5, 393215, 393217, 5, 458751, 393217, 5, 524287, 393217, 5, 589823, 393217, 5, 655359, 393217, 5, 720895, 393217, 5, 786431, 131073, 4, 720896, 131073, 7, 720897, 131073, 7, 720898, 131073, 7, 720899, 131073, 7, 720900, 131073, 7, 720901, 131073, 7, 720902, 131073, 7, 720903, 131073, 7, 720904, 131073, 7, 720905, 131073, 7, 720906, 131073, 7, 720907, 131073, 7, 720908, 131073, 7, 720909, 131073, 7, 720910, 131073, 7, 720911, 131073, 7, 720912, 131073, 7, 720913, 131073, 7, 720914, 131073, 7, 720915, 131073, 7, 720916, 196609, 4, 655380, 393217, 5, 589844, 393217, 5, 524308, 393217, 5, 458772, 393217, 5, 393236, 393217, 5, 327700, 393217, 5, 262164, 393217, 5, 196628, 393217, 5, 131092, 393217, 5, 65556, 393217, 5, 20, 393217, 5, -65516, 196609, 3, -65517, 131073, 7, -65518, 131073, 7, -65519, 131073, 7, -65520, 131073, 7, -65521, 196609, 5, -65522, 131073, 7, -65523, 131073, 7, -65524, 131073, 7, -65525, 131073, 7, -65526, 131073, 7, -65527, 131073, 7, -65528, 131073, 7, -65529, 131073, 7, -65530, 131073, 7, -65531, 131073, 7, -65532, 131073, 7, -65533, 131073, 7, -65534, 131073, 7, -65535, 131073, 7, -65536, 131073, 7, 15, 393217, 5, 65551, 393217, 5, 131087, 393217, 5, 196623, 393217, 5, 262159, 393217, 5, 327695, 393217, 5, 393231, 393217, 5, 458767, 393217, 5, 524303, 393217, 6)
+
+[connection signal="body_entered" from="Teleporter" to="Teleporter" method="_on_body_entered"]
