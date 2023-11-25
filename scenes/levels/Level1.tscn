@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://48cqswk6js05"]
+
+[ext_resource type="PackedScene" uid="uid://b0mquelib1cl3" path="res://scenes/DungeonTileMap.tscn" id="1_r8shj"]
+[ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="2_0pk6v"]
+[ext_resource type="Script" path="res://scripts/TextureLabelReplacer.gd" id="3_0jou3"]
+[ext_resource type="Texture2D" uid="uid://bs53s50oeljus" path="res://1x1.png" id="4_0rvk4"]
+[ext_resource type="Script" path="res://scripts/Teleporter.gd" id="4_imv1h"]
+[ext_resource type="PackedScene" uid="uid://bnog7mf5kyr1a" path="res://scenes/ThrowableObjects/ThrowableObject.tscn" id="5_klb0n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx5n4"]
+size = Vector2(32, 64)
+
+[node name="Level1" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_r8shj")]
+position = Vector2(-1, 0)
+layer_0/tile_data = PackedInt32Array(720895, 393216, 1, 655359, 393216, 1, 589823, 393216, 1, 524287, 393216, 1, 458751, 393216, 1, 393215, 393216, 1, 327679, 393216, 1, 262143, 393216, 1, 196607, 393216, 1, 131071, 393216, 1, 65535, 393216, 1, -1, 393216, 1, -65536, 393216, 1, -65535, 393216, 1, -65534, 393216, 1, -65533, 393216, 1, -65532, 393216, 1, -65531, 393216, 1, -65530, 393216, 1, -65529, 393216, 1, -65528, 393216, 1, -65527, 393216, 1, -65526, 393216, 1, -65525, 393216, 1, -65524, 393216, 1, -65523, 393216, 1, -65522, 393216, 1, -65521, 393216, 1, -65520, 393216, 1, -65519, 393216, 1, -65518, 393216, 1, -65517, 393216, 1, -65516, 393216, 1, 720910, 393216, 1, 720909, 393216, 1, 720908, 393216, 1, 720907, 393216, 1, 720906, 393216, 1, 720905, 393216, 1, 720904, 393216, 1, 720903, 393216, 1, 720902, 393216, 1, 720901, 393216, 1, 720900, 393216, 1, 720899, 393216, 1, 720898, 393216, 1, 720897, 393216, 1, 720896, 393216, 1, 786431, 393216, 1, 655364, 393216, 1, 655369, 393216, 1, 589833, 393216, 1, 655372, 393216, 1, 589836, 393216, 1, 524300, 393216, 1, 720925, 393216, 1, 720926, 393216, 1, -65515, 393216, 1, -65514, 393216, 1, -65513, 393216, 1, -65512, 393216, 1, -65511, 393216, 1, -65510, 393216, 1, -65509, 393216, 1, -65508, 393216, 1, -65507, 393216, 1, -65506, 393216, 1, -65505, 393216, 1, 31, 393216, 1, 65567, 393216, 1, 131103, 393216, 1, 196639, 393216, 1, 262175, 393216, 1, 327711, 393216, 1, 393247, 393216, 1, 458783, 393216, 1, 524319, 393216, 1, 589855, 393216, 1, 655391, 393216, 1, 720927, 393216, 1, 720916, 393216, 1, 720917, 393216, 1, 720918, 393216, 1, 720919, 393216, 1, 720920, 393216, 1, 720921, 393216, 1, 720922, 393216, 1, 720923, 393216, 1, 720924, 393216, 1, 720915, 393216, 1, 524314, 393216, 1, 589850, 393216, 1, 655386, 393216, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_0pk6v")]
+position = Vector2(39, 307)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = -30
+limit_right = 1021
+limit_bottom = 380
+
+[node name="Tutorial" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 672.0
+offset_bottom = 353.0
+
+[node name="Label" type="RichTextLabel" parent="Tutorial"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 29.0
+offset_top = 219.0
+offset_right = 394.0
+offset_bottom = 535.0
+bbcode_enabled = true
+text = "Tap %j%%z%%south%
+to short jump"
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("3_0jou3")
+input_prompt_texture_path = "res://assets/InputPrompts/"
+
+[node name="Label2" type="RichTextLabel" parent="Tutorial"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 235.0
+offset_top = 219.0
+offset_right = 600.0
+offset_bottom = 535.0
+bbcode_enabled = true
+text = "Hold %j%%z%%south%
+to long jump"
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("3_0jou3")
+input_prompt_texture_path = "res://assets/InputPrompts/"
+
+[node name="Label3" type="RichTextLabel" parent="Tutorial"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 601.0
+offset_top = 219.0
+offset_right = 966.0
+offset_bottom = 535.0
+bbcode_enabled = true
+text = "Press %k%%x%%west%
+to grab, throw boxes and interact"
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("3_0jou3")
+input_prompt_texture_path = "res://assets/InputPrompts/"
+
+[node name="Teleporter" type="Area2D" parent="."]
+position = Vector2(937, 320)
+collision_mask = 8
+script = ExtResource("4_imv1h")
+scene = "res://scenes/levels/Level1.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="Teleporter"]
+scale = Vector2(1.6, 3.2)
+texture = ExtResource("4_0rvk4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
+shape = SubResource("RectangleShape2D_tx5n4")
+
+[node name="ThrowableObject" parent="." instance=ExtResource("5_klb0n")]
+position = Vector2(658, 334)
+
+[connection signal="body_entered" from="Teleporter" to="Teleporter" method="_on_body_entered"]

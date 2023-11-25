@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://bnog7mf5kyr1a"]
+
+[ext_resource type="Script" path="res://scripts/throwable_object/ThrowableObject.gd" id="1_obp7u"]
+[ext_resource type="PackedScene" uid="uid://bkwjtmoxihqhi" path="res://scenes/Weight.tscn" id="2_0gtm1"]
+[ext_resource type="Script" path="res://scripts/state_machine/StateMachine.gd" id="3_vvysv"]
+[ext_resource type="Script" path="res://scripts/throwable_object/Idle.gd" id="4_aadoc"]
+[ext_resource type="Script" path="res://scripts/throwable_object/Falling.gd" id="5_qvmea"]
+[ext_resource type="Script" path="res://scripts/throwable_object/PickedUp.gd" id="6_8a08k"]
+[ext_resource type="Script" path="res://scripts/throwable_object/Thrown.gd" id="7_pu5jq"]
+[ext_resource type="Texture2D" uid="uid://bs53s50oeljus" path="res://1x1.png" id="8_vpfow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdp35"]
+size = Vector2(32, 32)
+
+[node name="ThrowableObject" type="CharacterBody2D" groups=["Weight"]]
+collision_layer = 4
+collision_mask = 15
+floor_stop_on_slope = false
+floor_block_on_wall = false
+floor_snap_length = 8.0
+platform_on_leave = 2
+safe_margin = 0.04
+script = ExtResource("1_obp7u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("8_vpfow")
+
+[node name="Weight" parent="." instance=ExtResource("2_0gtm1")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tdp35")
+debug_color = Color(0.894118, 0, 0.780392, 0.419608)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_vvysv")
+initial_state = NodePath("Falling")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_aadoc")
+
+[node name="Falling" type="Node" parent="StateMachine"]
+script = ExtResource("5_qvmea")
+
+[node name="PickedUp" type="Node" parent="StateMachine"]
+script = ExtResource("6_8a08k")
+
+[node name="Thrown" type="Node" parent="StateMachine"]
+script = ExtResource("7_pu5jq")
