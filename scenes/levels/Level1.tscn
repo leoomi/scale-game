@@ -88,7 +88,7 @@ script = ExtResource("3_0jou3")
 input_prompt_texture_path = "res://assets/InputPrompts/"
 
 [node name="Teleporter" parent="." instance=ExtResource("3_tixus")]
-scene = "res://scenes/levels/Level2d.tscn"
+scene = "res://scenes/levels/Level2.tscn"
 
 [node name="ThrowableObject" parent="." instance=ExtResource("5_klb0n")]
 position = Vector2(658, 334)

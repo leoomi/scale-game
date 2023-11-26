@@ -37,8 +37,8 @@ func check_and_move_plates():
 
 ## Clean this shit up later. Maybe add an impulse for the player object
 func move_plates(weight_delta: int) -> Tween:
-	var tween = left_plate.move_plate(weight_delta * -15, 0.5)
-	right_plate.move_plate(weight_delta * 15, 0.5)
+	var tween = left_plate.move_plate(-weight_delta, weight_delta * -move_distance, 0.5)
+	right_plate.move_plate(weight_delta, weight_delta * move_distance, 0.5)
 	
 	return tween
 

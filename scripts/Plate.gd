@@ -8,7 +8,7 @@ var current_tween: Tween
 func _ready():
 	weight.weight = weight_value
 
-func move_plate(movement: float, duration: float) -> Tween:
+func move_plate(difference: int, movement: float, duration: float) -> Tween:
 	var tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_CUBIC)
 	current_tween = tween
 	var vector = Vector2(0, movement)

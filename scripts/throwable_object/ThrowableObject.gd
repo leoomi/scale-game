@@ -31,6 +31,8 @@ func handle_interaction(player: Player):
 	player.weight.weight_changed.emit(player.weight.weights_on_top)
 	weight.on_weight_picked_up()
 
+	if current_tween != null and current_tween.is_running():
+		current_tween.kill()
 	fsm.transition_to("PickedUp")
 
 func handle_picked_up_interaction(player: Player):
