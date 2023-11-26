@@ -6,6 +6,7 @@ extends Node2D
 @export var right_plate: Plate
 var current_difference = 0
 var current_tween: Tween
+signal movement_done
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,7 +33,7 @@ func check_and_move_plates():
 		return
 
 	current_tween = move_plates(weight_delta)
-	current_tween.tween_callback(check_and_move_plates)
+	current_tween.tween_callback(movement_tween_callback)
 
 ## Clean this shit up later. Maybe add an impulse for the player object
 func move_plates(weight_delta: int) -> Tween:
@@ -40,3 +41,7 @@ func move_plates(weight_delta: int) -> Tween:
 	right_plate.move_plate(weight_delta * 15, 0.5)
 	
 	return tween
+
+func movement_tween_callback():
+	check_and_move_plates()
+	movement_done.emit()
