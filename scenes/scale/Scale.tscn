@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0dxj4iobbqha"]
+[gd_scene load_steps=4 format=3 uid="uid://c0dxj4iobbqha"]
 
 [ext_resource type="Script" path="res://scripts/Scale.gd" id="1_tswx3"]
+[ext_resource type="PackedScene" uid="uid://c3nipp8byki1m" path="res://scenes/scale/ScaleSprite.tscn" id="3_8g4nj"]
 [ext_resource type="Script" path="res://scripts/debug/ScaleDebug.gd" id="3_pikri"]
 
 [node name="Scale" type="Node2D"]
@@ -23,3 +24,5 @@ offset_top = -191.0
 offset_right = -197.0
 offset_bottom = -165.0
 text = ":)"
+
+[node name="ScaleSprite" parent="." instance=ExtResource("3_8g4nj")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://davajjbgfm20b"]
+[gd_scene load_steps=13 format=3 uid="uid://davajjbgfm20b"]
 
 [ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="1_nrr7s"]
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_tojh0"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cg2wlkajmx72v" path="res://scenes/scale/SwitchScale.tscn" id="5_ijxj8"]
 [ext_resource type="PackedScene" uid="uid://cdxpnd6o42sn2" path="res://scenes/scale/Plate.tscn" id="6_f6vxh"]
 [ext_resource type="PackedScene" uid="uid://c24tnyuc1g1on" path="res://scenes/ThrowableObjects/AluBox.tscn" id="8_3gudr"]
+[ext_resource type="PackedScene" uid="uid://h8wbcij0ikaf" path="res://scenes/scale/ScaleBarSprite.tscn" id="8_h4w34"]
+[ext_resource type="PackedScene" uid="uid://c3nipp8byki1m" path="res://scenes/scale/ScaleSprite.tscn" id="9_0l3k7"]
 [ext_resource type="Script" path="res://scripts/TextureLabelReplacer.gd" id="9_76trd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tx5n4"]
@@ -47,13 +49,23 @@ left_plate = NodePath("Plate")
 right_plate = NodePath("Plate2")
 
 [node name="Plate" parent="SwitchScale" instance=ExtResource("6_f6vxh")]
-position = Vector2(-96, 64)
+position = Vector2(-96, 72)
 
 [node name="Plate2" parent="SwitchScale" instance=ExtResource("6_f6vxh")]
-position = Vector2(112, 64)
+position = Vector2(112, 72)
+
+[node name="ScaleSprite" parent="SwitchScale" instance=ExtResource("9_0l3k7")]
+offset_left = -13.0
+offset_top = -128.0
+offset_right = 27.0
+offset_bottom = 135.0
+
+[node name="ScaleBarSprite" parent="SwitchScale" instance=ExtResource("8_h4w34")]
+offset_top = -116.0
+offset_bottom = -108.0
 
 [node name="ThrowableObject2" parent="." instance=ExtResource("8_3gudr")]
-position = Vector2(264, 336)
+position = Vector2(229, 336)
 
 [node name="Tutorial" type="Control" parent="."]
 layout_mode = 3

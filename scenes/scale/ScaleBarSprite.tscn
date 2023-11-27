@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://h8wbcij0ikaf"]
+
+[ext_resource type="Texture2D" uid="uid://6jmppaccm8xi" path="res://assets/scale-horizontal-bar.png" id="1_femjc"]
+
+[node name="ScaleBarSprite" type="NinePatchRect"]
+texture_filter = 1
+offset_left = -102.0
+offset_top = -124.0
+offset_right = 116.0
+offset_bottom = -116.0
+texture = ExtResource("1_femjc")
+patch_margin_left = 14
+patch_margin_right = 14
