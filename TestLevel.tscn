@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://sdmxv0xt8387"]
 
-[ext_resource type="PackedScene" uid="uid://bnog7mf5kyr1a" path="res://scenes/ThrowableObjects/ThrowableObject.tscn" id="1_7art8"]
-[ext_resource type="PackedScene" uid="uid://c0dxj4iobbqha" path="res://scenes/scale/Scale.tscn" id="1_uevap"]
+[ext_resource type="PackedScene" uid="uid://bnog7mf5kyr1a" path="res://scenes/ThrowableObject.tscn" id="1_7art8"]
+[ext_resource type="PackedScene" uid="uid://c0dxj4iobbqha" path="res://scenes/Scale.tscn" id="1_uevap"]
 [ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="2_0i5j5"]
-[ext_resource type="PackedScene" uid="uid://cdxpnd6o42sn2" path="res://scenes/scale/Plate.tscn" id="4_xt0s8"]
+[ext_resource type="PackedScene" uid="uid://cdxpnd6o42sn2" path="res://scenes/Plate.tscn" id="4_xt0s8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52kj3"]
 
@@ -16,8 +16,9 @@ position = Vector2(321, 348)
 scale = Vector2(47.05, 1.365)
 shape = SubResource("RectangleShape2D_52kj3")
 
-[node name="Scale" parent="." instance=ExtResource("1_uevap")]
-position = Vector2(336, 169)
+[node name="Scale" parent="." node_paths=PackedStringArray("left_plate", "right_plate") instance=ExtResource("1_uevap")]
+left_plate = NodePath("Plate")
+right_plate = NodePath("Plate2")
 
 [node name="Plate" parent="Scale" instance=ExtResource("4_xt0s8")]
 position = Vector2(-102, 54)
@@ -41,12 +42,3 @@ position = Vector2(357, 280)
 
 [node name="ThrowableObject4" parent="." instance=ExtResource("1_7art8")]
 position = Vector2(358, 308)
-
-[node name="Scale2" parent="." instance=ExtResource("1_uevap")]
-position = Vector2(341, 21)
-
-[node name="Plate" parent="Scale2" instance=ExtResource("4_xt0s8")]
-position = Vector2(-89, 69)
-
-[node name="Plate2" parent="Scale2" instance=ExtResource("4_xt0s8")]
-position = Vector2(61, 72)

@@ -233,12 +233,10 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 8
-collision_mask = 21
+collision_mask = 5
 floor_constant_speed = true
 floor_snap_length = 8.0
 script = ExtResource("1_c5v5b")
-max_speed = 150.0
-acceleration = 500.0
 
 [node name="RegularSprite" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -296,6 +294,9 @@ libraries = {
 [node name="Inventory" type="Node" parent="." groups=["Persist"]]
 script = ExtResource("11_7m6qk")
 long_jump = true
+wall_slide = true
+wall_jump = true
+double_jump = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mry84")
@@ -303,6 +304,6 @@ sprite_frames = SubResource("SpriteFrames_mry84")
 [node name="Weight" parent="." instance=ExtResource("13_aem74")]
 
 [node name="PickupRemoteTransform" type="RemoteTransform2D" parent="."]
-position = Vector2(0, -27)
+position = Vector2(0, -24)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/JumpSquatting" method="_on_animation_player_animation_finished"]

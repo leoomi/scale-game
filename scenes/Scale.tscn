@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0dxj4iobbqha"]
+
+[ext_resource type="Script" path="res://scripts/Scale.gd" id="1_tswx3"]
+[ext_resource type="Script" path="res://scripts/debug/ScaleDebug.gd" id="3_pikri"]
+
+[node name="Scale" type="Node2D"]
+position = Vector2(317, 181)
+script = ExtResource("1_tswx3")
+
+[node name="ScaleDebug" type="Control" parent="." node_paths=PackedStringArray("scale_object")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 231.0
+offset_top = 180.0
+offset_right = 271.0
+offset_bottom = 220.0
+script = ExtResource("3_pikri")
+scale_object = NodePath("..")
+
+[node name="Label" type="Label" parent="ScaleDebug"]
+layout_mode = 0
+offset_left = -237.0
+offset_top = -191.0
+offset_right = -197.0
+offset_bottom = -165.0
+text = ":)"
