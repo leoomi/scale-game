@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://davajjbgfm20b"]
+
+[ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="1_nrr7s"]
+[ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_tojh0"]
+[ext_resource type="Script" path="res://scripts/Teleporter.gd" id="2_vvr0q"]
+[ext_resource type="Texture2D" uid="uid://bs53s50oeljus" path="res://1x1.png" id="3_ba0f3"]
+[ext_resource type="PackedScene" uid="uid://c3soxy87awjqt" path="res://scenes/DirtTileMap.tscn" id="4_pgjej"]
+[ext_resource type="PackedScene" uid="uid://cg2wlkajmx72v" path="res://scenes/scale/SwitchScale.tscn" id="5_ijxj8"]
+[ext_resource type="PackedScene" uid="uid://cdxpnd6o42sn2" path="res://scenes/scale/Plate.tscn" id="6_f6vxh"]
+[ext_resource type="PackedScene" uid="uid://bnog7mf5kyr1a" path="res://scenes/ThrowableObjects/ThrowableObject.tscn" id="7_5ee77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx5n4"]
+size = Vector2(32, 64)
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_tojh0")
+
+[node name="Player" parent="." instance=ExtResource("1_nrr7s")]
+position = Vector2(39, 307)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = -30
+limit_right = 1021
+limit_bottom = 380
+
+[node name="Teleporter" type="Area2D" parent="."]
+position = Vector2(576, 320)
+collision_mask = 8
+script = ExtResource("2_vvr0q")
+scene = "res://scenes/levels/Level1.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="Teleporter"]
+scale = Vector2(1.6, 3.2)
+texture = ExtResource("3_ba0f3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
+shape = SubResource("RectangleShape2D_tx5n4")
+
+[node name="TileMap" parent="." instance=ExtResource("4_pgjej")]
+layer_0/tile_data = PackedInt32Array(-1, 131073, 3, 65535, 393217, 3, 131071, 393217, 3, 196607, 393217, 3, 262143, 393217, 3, 327679, 393217, 3, 393215, 393217, 3, 458751, 393217, 3, 524287, 393217, 3, 589823, 393217, 3, 655359, 393217, 3, 720895, 393217, 3, 786431, 131073, 4, 720896, 65537, 7, 720897, 65537, 7, 720898, 65537, 7, 720899, 65537, 7, 720900, 65537, 7, 720901, 65537, 7, 720902, 65537, 7, 720903, 65537, 7, 720904, 65537, 7, 720905, 65537, 7, 720906, 65537, 7, 720907, 65537, 7, 720908, 65537, 7, 720909, 65537, 7, 720910, 327681, 4, 720911, 262145, 4, 720912, 65537, 7, 720913, 65537, 7, 720914, 65537, 7, 720915, 65537, 7, 720916, 196609, 4, 655380, 393217, 3, 589844, 393217, 3, 524308, 393217, 3, 458772, 393217, 3, 393236, 393217, 3, 327700, 393217, 3, 262164, 393217, 3, 196628, 393217, 3, 131092, 393217, 3, 65556, 393217, 3, 20, 393217, 3, -65516, 196609, 3, -65517, 65537, 7, -65518, 65537, 7, -65519, 65537, 7, -65520, 65537, 7, -65521, 65537, 7, -65522, 65537, 7, -65523, 65537, 7, -65524, 65537, 7, -65525, 65537, 7, -65526, 65537, 7, -65527, 65537, 7, -65528, 65537, 7, -65529, 65537, 7, -65530, 65537, 7, -65531, 65537, 7, -65532, 65537, 7, -65533, 65537, 7, -65534, 65537, 7, -65535, 65537, 7, -65536, 65537, 7, 655375, 131073, 1, 589839, 131073, 1, 524303, 131073, 1, 458767, 131073, 1, 393231, 131073, 1, 655374, 1, 1, 589838, 1, 1, 524302, 1, 1, 458766, 1, 1, 393230, 1, 1, 327694, 1, 0, 327695, 131073, 0)
+
+[node name="SwitchScale" parent="." node_paths=PackedStringArray("left_plate", "right_plate") instance=ExtResource("5_ijxj8")]
+position = Vector2(256, 216)
+move_distance = 15
+left_plate = NodePath("Plate")
+right_plate = NodePath("Plate2")
+
+[node name="Plate" parent="SwitchScale" instance=ExtResource("6_f6vxh")]
+position = Vector2(-96, 64)
+
+[node name="Plate2" parent="SwitchScale" instance=ExtResource("6_f6vxh")]
+position = Vector2(112, 64)
+
+[node name="ThrowableObject" parent="." instance=ExtResource("7_5ee77")]
+position = Vector2(264, 336)
+weight_value = 2
+
+[connection signal="body_entered" from="Teleporter" to="Teleporter" method="_on_body_entered"]

@@ -1,21 +1,20 @@
 [gd_scene load_steps=11 format=3 uid="uid://48cqswk6js05"]
 
+[ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_t2uyy"]
 [ext_resource type="PackedScene" uid="uid://c3soxy87awjqt" path="res://scenes/DirtTileMap.tscn" id="1_wqkn5"]
 [ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="3_rid37"]
 [ext_resource type="PackedScene" uid="uid://cg2wlkajmx72v" path="res://scenes/scale/SwitchScale.tscn" id="5_mvg58"]
 [ext_resource type="Script" path="res://scripts/Teleporter.gd" id="5_pwxfr"]
 [ext_resource type="Texture2D" uid="uid://bs53s50oeljus" path="res://1x1.png" id="6_f646n"]
 [ext_resource type="PackedScene" uid="uid://bnog7mf5kyr1a" path="res://scenes/ThrowableObjects/ThrowableObject.tscn" id="7_iuo3g"]
-[ext_resource type="Script" path="res://scripts/Door.gd" id="8_t2aql"]
 [ext_resource type="PackedScene" uid="uid://cdxpnd6o42sn2" path="res://scenes/scale/Plate.tscn" id="9_k30j0"]
+[ext_resource type="PackedScene" uid="uid://cvlqwx4shj7a8" path="res://scenes/Door.tscn" id="9_m1lqb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tx5n4"]
 size = Vector2(32, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwcba"]
-size = Vector2(20, 64)
-
 [node name="Level2" type="Node2D"]
+script = ExtResource("1_t2uyy")
 
 [node name="Player" parent="." instance=ExtResource("3_rid37")]
 position = Vector2(39, 307)
@@ -57,20 +56,6 @@ weight_value = 2
 [node name="ThrowableObject" parent="." instance=ExtResource("7_iuo3g")]
 position = Vector2(288, 264)
 
-[node name="Door" type="CharacterBody2D" parent="."]
-position = Vector2(496, 320)
-collision_layer = 16
-collision_mask = 0
-floor_stop_on_slope = false
-floor_block_on_wall = false
-script = ExtResource("8_t2aql")
-
-[node name="Sprite2D" type="Sprite2D" parent="Door"]
-scale = Vector2(1, 3.2)
-texture = ExtResource("6_f646n")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
-shape = SubResource("RectangleShape2D_nwcba")
+[node name="Door" parent="." instance=ExtResource("9_m1lqb")]
 
 [connection signal="body_entered" from="Teleporter" to="Teleporter" method="_on_body_entered"]
-[connection signal="switch_changed" from="SwitchScale" to="Door" method="_on_switch_scale_switch_changed"]

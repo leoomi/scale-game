@@ -9,6 +9,8 @@ extends CharacterBody2D
 @export var short_jump_velocity = -300
 @export var double_jump_velocity = -300
 @export var jump_velocity = -400.0
+@export var scale_jump_velocity = -450.0
+@export var scale_jump_scaling = 0.3
 @export var wall_jump_velocity = Vector2(150, -450)
 @export var weight_value: int = 1
 @export var debug = false
@@ -72,6 +74,13 @@ func double_jump():
 func wall_jump(direction: int):
 	velocity.y = wall_jump_velocity.y
 	velocity.x = direction * wall_jump_velocity.x
+
+func scale_jump(magnitude: int):
+	if weight.get_total_weight() > magnitude:
+		return
+
+	velocity.y = (1 + (magnitude - 1) * scale_jump_scaling) * scale_jump_velocity
+	fsm.transition_to("Jumping")
 
 func handle_drop_from_platform() -> bool:
 	if not Input.is_action_pressed("down"):

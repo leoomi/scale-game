@@ -42,8 +42,10 @@ position = Vector2(357, 280)
 [node name="ThrowableObject4" parent="." instance=ExtResource("1_7art8")]
 position = Vector2(358, 308)
 
-[node name="Scale2" parent="." instance=ExtResource("1_uevap")]
+[node name="Scale2" parent="." node_paths=PackedStringArray("left_plate", "right_plate") instance=ExtResource("1_uevap")]
 position = Vector2(341, 21)
+left_plate = NodePath("Plate")
+right_plate = NodePath("Plate2")
 
 [node name="Plate" parent="Scale2" instance=ExtResource("4_xt0s8")]
 position = Vector2(-89, 69)
