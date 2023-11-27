@@ -16,7 +16,7 @@ func move_plate(difference: int, movement: float, duration: float) -> Tween:
 	tween.tween_property(self, "position", position + vector, duration)
 
 	if movement < 0:
-		get_tree().create_timer(0.80*duration).timeout.connect(func(): check_player(difference))
+		get_tree().create_timer(0.75*duration).timeout.connect(func(): check_player(difference))
 
 	for w in weight.weights_on_top:
 		if w.owner is ThrowableObject:

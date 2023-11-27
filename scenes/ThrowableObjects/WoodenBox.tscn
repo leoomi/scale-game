@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceyera6no833c"]
+
+[ext_resource type="PackedScene" uid="uid://bnog7mf5kyr1a" path="res://scenes/ThrowableObjects/ThrowableObject.tscn" id="1_x2w53"]
+[ext_resource type="Texture2D" uid="uid://b0gkmn4ftn40n" path="res://assets/wooden-box.png" id="2_gcti5"]
+
+[node name="WoodenBox" instance=ExtResource("1_x2w53")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_gcti5")

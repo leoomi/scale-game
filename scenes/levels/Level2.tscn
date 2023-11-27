@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cg2wlkajmx72v" path="res://scenes/scale/SwitchScale.tscn" id="5_mvg58"]
 [ext_resource type="Script" path="res://scripts/Teleporter.gd" id="5_pwxfr"]
 [ext_resource type="Texture2D" uid="uid://bs53s50oeljus" path="res://1x1.png" id="6_f646n"]
-[ext_resource type="PackedScene" uid="uid://bnog7mf5kyr1a" path="res://scenes/ThrowableObjects/ThrowableObject.tscn" id="7_iuo3g"]
+[ext_resource type="PackedScene" uid="uid://ceyera6no833c" path="res://scenes/ThrowableObjects/WoodenBox.tscn" id="9_4cr1j"]
 [ext_resource type="PackedScene" uid="uid://cdxpnd6o42sn2" path="res://scenes/scale/Plate.tscn" id="9_k30j0"]
 [ext_resource type="PackedScene" uid="uid://cvlqwx4shj7a8" path="res://scenes/Door.tscn" id="9_m1lqb"]
 
@@ -28,7 +28,7 @@ limit_bottom = 380
 position = Vector2(576, 320)
 collision_mask = 8
 script = ExtResource("5_pwxfr")
-scene = "res://scenes/levels/Level1.tscn"
+scene = "res://scenes/levels/Level3.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="Teleporter"]
 scale = Vector2(1.6, 3.2)
@@ -53,9 +53,10 @@ position = Vector2(-96, 64)
 position = Vector2(112, 64)
 weight_value = 2
 
-[node name="ThrowableObject" parent="." instance=ExtResource("7_iuo3g")]
-position = Vector2(288, 264)
-
 [node name="Door" parent="." instance=ExtResource("9_m1lqb")]
 
+[node name="WoodenBox" parent="." instance=ExtResource("9_4cr1j")]
+position = Vector2(288, 264)
+
 [connection signal="body_entered" from="Teleporter" to="Teleporter" method="_on_body_entered"]
+[connection signal="switch_changed" from="SwitchScale" to="Door" method="_on_switch_scale_switch_changed"]

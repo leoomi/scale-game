@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://noghmh64spk6"
-path="res://.godot/imported/spikes.png-8623a6308d30caf0ad1d5cef975bbe78.ctex"
+uid="uid://d17vtixkhp30a"
+path="res://.godot/imported/alu-box.png-96b3d983031726951e7e11c82e77a8fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/spikes.png"
-dest_files=["res://.godot/imported/spikes.png-8623a6308d30caf0ad1d5cef975bbe78.ctex"]
+source_file="res://assets/alu-box.png"
+dest_files=["res://.godot/imported/alu-box.png-96b3d983031726951e7e11c82e77a8fc.ctex"]
 
 [params]
 

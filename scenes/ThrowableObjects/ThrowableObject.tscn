@@ -23,6 +23,7 @@ safe_margin = 0.04
 script = ExtResource("1_obp7u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("8_vpfow")
 

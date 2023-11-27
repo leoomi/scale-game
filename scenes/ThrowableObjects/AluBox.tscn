@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c24tnyuc1g1on"]
+
+[ext_resource type="PackedScene" uid="uid://bnog7mf5kyr1a" path="res://scenes/ThrowableObjects/ThrowableObject.tscn" id="1_c2ef5"]
+[ext_resource type="Texture2D" uid="uid://d17vtixkhp30a" path="res://assets/alu-box.png" id="2_imhqe"]
+
+[node name="AluBox" instance=ExtResource("1_c2ef5")]
+weight_value = 2
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_imhqe")
+
+[node name="Weight" parent="." index="1"]
+weight = 2
