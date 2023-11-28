@@ -1,5 +1,7 @@
 extends Control
 
+@export var start_level: String
+
 const MUSIC_BUS = "Music"
 const SFX_BUS = "SFX"
 
@@ -10,8 +12,7 @@ func FocusEntered():
 	$Focus.play()
 
 func _on_start_btn_pressed() -> void:
-	get_tree().change_scene_to_file("res://TestLevel.tscn")
-
+	get_tree().change_scene_to_file(start_level)
 
 func _on_options_btn_pressed():
 	$MainMenu.hide()
