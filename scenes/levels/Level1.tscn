@@ -63,9 +63,9 @@ input_prompt_texture_path = "res://assets/InputPrompts/"
 texture_filter = 1
 layout_mode = 0
 offset_left = 601.0
-offset_top = 219.0
+offset_top = 194.0
 offset_right = 966.0
-offset_bottom = 535.0
+offset_bottom = 510.0
 bbcode_enabled = true
 text = "Press %k%%x%%west%
 to grab, throw boxes and interact"
@@ -78,9 +78,9 @@ input_prompt_texture_path = "res://assets/InputPrompts/"
 texture_filter = 1
 layout_mode = 0
 offset_left = 601.0
-offset_top = 161.0
+offset_top = 136.0
 offset_right = 966.0
-offset_bottom = 477.0
+offset_bottom = 452.0
 bbcode_enabled = true
 text = "Press %r%%select% to reset
 if you get stuck"

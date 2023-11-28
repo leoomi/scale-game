@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Scale.gd" id="1_tswx3"]
 [ext_resource type="PackedScene" uid="uid://c3nipp8byki1m" path="res://scenes/scale/ScaleSprite.tscn" id="3_8g4nj"]
-[ext_resource type="Script" path="res://scripts/debug/ScaleDebug.gd" id="3_pikri"]
+[ext_resource type="Script" path="res://scripts/debug/debug_info/ScaleDebug.gd" id="3_pikri"]
 
 [node name="Scale" type="Node2D"]
 script = ExtResource("1_tswx3")

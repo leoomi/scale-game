@@ -1,0 +1,115 @@
+[gd_scene load_steps=15 format=3 uid="uid://buuqdiw2vl4qy"]
+
+[ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_frhgx"]
+[ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="2_4nf1g"]
+[ext_resource type="Script" path="res://scripts/Teleporter.gd" id="3_52qde"]
+[ext_resource type="Texture2D" uid="uid://bs53s50oeljus" path="res://1x1.png" id="4_3faud"]
+[ext_resource type="PackedScene" uid="uid://c3soxy87awjqt" path="res://scenes/DirtTileMap.tscn" id="5_187qd"]
+[ext_resource type="PackedScene" uid="uid://cg2wlkajmx72v" path="res://scenes/scale/SwitchScale.tscn" id="6_rbbbh"]
+[ext_resource type="PackedScene" uid="uid://cdxpnd6o42sn2" path="res://scenes/scale/Plate.tscn" id="7_kwka8"]
+[ext_resource type="PackedScene" uid="uid://c3nipp8byki1m" path="res://scenes/scale/ScaleSprite.tscn" id="8_jpho6"]
+[ext_resource type="PackedScene" uid="uid://h8wbcij0ikaf" path="res://scenes/scale/ScaleBarSprite.tscn" id="9_f0dsm"]
+[ext_resource type="PackedScene" uid="uid://ceyera6no833c" path="res://scenes/ThrowableObjects/WoodenBox.tscn" id="10_xomiq"]
+[ext_resource type="PackedScene" uid="uid://c24tnyuc1g1on" path="res://scenes/ThrowableObjects/AluBox.tscn" id="11_jk6hx"]
+[ext_resource type="Script" path="res://scripts/DeathPlane.gd" id="12_kuiok"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx5n4"]
+size = Vector2(32, 64)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jd4c0"]
+a = Vector2(-576, 0)
+b = Vector2(1038, 2)
+
+[node name="Level4" type="Node2D"]
+script = ExtResource("1_frhgx")
+
+[node name="Player" parent="." instance=ExtResource("2_4nf1g")]
+position = Vector2(43, 335)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = -30
+limit_right = 1931
+limit_bottom = 380
+editor_draw_limits = true
+
+[node name="Teleporter" type="Area2D" parent="."]
+position = Vector2(1808, -224)
+collision_mask = 8
+script = ExtResource("3_52qde")
+scene = "res://scenes/levels/Level4.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="Teleporter"]
+scale = Vector2(1.6, 3.2)
+texture = ExtResource("4_3faud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
+shape = SubResource("RectangleShape2D_tx5n4")
+
+[node name="TileMap" parent="." instance=ExtResource("5_187qd")]
+layer_0/tile_data = PackedInt32Array(65535, 131073, 0, 131071, 131073, 1, 196607, 131073, 1, 262143, 131073, 1, 327679, 131073, 1, 393215, 131073, 1, 458751, 131073, 1, 524287, 327681, 7, 589823, 131073, 1, 655359, 131073, 1, 720895, 131073, 1, 786431, 262145, 6, 720896, 65537, 0, 720897, 65537, 0, 720898, 65537, 0, 720899, 65537, 0, 720900, 65537, 0, 720901, 65537, 0, 720902, 65537, 0, 720903, 65537, 0, 720904, 65537, 0, 917520, 65537, 2, 851984, 65537, 1, 786448, 65537, 1, 720912, 65537, 1, 655376, 65537, 1, 589840, 327681, 6, 524304, 1, 1, 458768, 1, 1, 589828, 524289, 4, 458752, 65537, 7, 458753, 65537, 7, 458754, 131073, 7, 589833, 1, 0, 589834, 65537, 0, 589835, 65537, 0, 589836, 65537, 0, 589837, 65537, 0, 589838, 65537, 0, 393232, 1, 0, 393233, 65537, 0, 393234, 65537, 0, 393235, 65537, 0, 393236, 65537, 0, 393237, 131073, 0, 589839, 65537, 0, 655369, 1, 1, 655370, 65537, 1, 655371, 65537, 1, 655372, 65537, 1, 655373, 65537, 1, 655374, 65537, 1, 655375, 65537, 1, 720911, 65537, 1, 720910, 65537, 1, 720909, 65537, 1, 720908, 65537, 1, 720907, 65537, 1, 720906, 65537, 1, 720905, 327681, 6, 786447, 65537, 1, 786446, 65537, 1, 786445, 65537, 1, 786444, 65537, 1, 786443, 65537, 1, 786442, 65537, 1, 851980, 65537, 1, 851979, 65537, 1, 851978, 65537, 1, 851977, 65537, 1, 851976, 65537, 1, 851981, 65537, 1, 917514, 65537, 2, 917512, 65537, 2, 917513, 65537, 2, 851975, 65537, 1, 851974, 65537, 1, 851973, 65537, 1, 851972, 65537, 1, 851971, 65537, 1, 851970, 65537, 1, 786437, 65537, 1, 786438, 65537, 1, 786439, 65537, 1, 786440, 65537, 1, 786441, 65537, 1, 786436, 65537, 1, 786434, 65537, 1, 786435, 65537, 1, 786433, 65537, 1, 786432, 65537, 1, 851967, 65537, 1, 917503, 65537, 1, 851968, 65537, 1, 851969, 65537, 1, 851982, 65537, 1, 851983, 65537, 1, 917519, 65537, 2, 917518, 65537, 2, 917517, 65537, 2, 917516, 65537, 2, 917515, 65537, 2, 917511, 65537, 2, 917510, 65537, 2, 917509, 65537, 2, 917508, 65537, 2, 917507, 65537, 2, 917506, 65537, 2, 917505, 65537, 2, 917504, 65537, 2, 983039, 65537, 2, 983038, 1, 2, 917521, 65537, 2, 917522, 65537, 2, 917523, 65537, 2, 917502, 1, 1, 851966, 1, 1, 786430, 1, 1, 720894, 1, 1, 655358, 1, 1, 589822, 1, 1, 524286, 1, 1, 458750, 1, 1, 393214, 1, 1, 327678, 1, 1, 262142, 1, 1, 196606, 1, 1, 131070, 1, 1, 65534, 1, 0, 851985, 65537, 1, 786449, 65537, 1, 720913, 65537, 1, 655377, 65537, 1, 589841, 65537, 1, 524305, 65537, 1, 458769, 65537, 1, 458770, 65537, 1, 458771, 65537, 1, 458772, 65537, 1, 458773, 131073, 1, 524309, 131073, 1, 589845, 131073, 1, 655381, 131073, 1, 655380, 65537, 1, 720916, 65537, 1, 786452, 65537, 1, 851988, 65537, 1, 851987, 65537, 1, 851986, 65537, 1, 786450, 65537, 1, 720914, 65537, 1, 655378, 65537, 1, 589842, 65537, 1, 524306, 65537, 1, 524307, 65537, 1, 524308, 65537, 1, 589844, 65537, 1, 655379, 65537, 1, 720915, 65537, 1, 786451, 65537, 1, 589843, 65537, 1, 720917, 131073, 1, 786453, 131073, 1, 851989, 131073, 1, 917525, 131073, 2, 917524, 65537, 2, 34, 1, 0, 65570, 1, 1, 131106, 1, 1, 196642, 1, 1, 262178, 1, 1, 327714, 1, 1, 393250, 1, 1, 458786, 1, 1, 524322, 1, 1, 589858, 1, 1, 655394, 1, 1, 720930, 1, 1, 786466, 1, 1, 852002, 1, 1, 917538, 1, 1, 983074, 1, 2, 35, 131073, 0, 65571, 131073, 1, 131107, 131073, 1, 196643, 131073, 1, 262179, 131073, 1, 327715, 131073, 1, 393251, 131073, 1, 458787, 131073, 1, 983075, 131073, 2, 917539, 131073, 1, 852003, 131073, 1, 786467, 131073, 1, 720931, 131073, 1, 655395, 131073, 1, 589859, 131073, 1, 524323, 131073, 1, -131033, 65537, 0, -65497, 65537, 1, 39, 65537, 2, -131032, 131073, 0, -65496, 131073, 1, 40, 131073, 2, -131034, 1, 0, -65498, 1, 1, 38, 1, 2, -65483, 1, 0, 53, 1, 1, 65589, 1, 2, 65590, 65537, 2, 65591, 65537, 2, 65592, 65537, 2, 56, 65537, 1, -65480, 65537, 0, -65481, 65537, 0, -65482, 65537, 0, 54, 65537, 1, 55, 65537, 1, -327627, 1, 2, -393163, 1, 0, -393157, 327681, 6, -393158, 65537, 0, -327622, 65537, 1, -327623, 327681, 5, -327624, 65537, 2, -327625, 65537, 2, -327626, 65537, 2, -393159, 65537, 0, -393161, 65537, 0, -393162, 65537, 0, -393160, 65537, 0, -327621, 65537, 1, -327620, 131073, 1, -393156, 131073, 1, -262087, 1, 1, -196551, 1, 1, -131015, 1, 1, -65479, 327681, 6, 57, 65537, 1, 65593, 327681, 5, 131129, 1, 1, 196665, 1, 1, 262201, 1, 1, 327737, 1, 1, 393273, 1, 1, 393274, 65537, 1, 458810, 65537, 1, 524346, 65537, 2, 524345, 1, 2, 458809, 1, 1, 262202, 65537, 1, 196666, 65537, 1, 131130, 65537, 1, 65594, 65537, 1, 58, 65537, 1, -65478, 65537, 1, -131014, 65537, 1, -196550, 65537, 1, -262085, 65537, 1, -262086, 65537, 1, -262084, 131073, 1, -196548, 131073, 1, -196549, 65537, 1, -131013, 65537, 1, -65477, 65537, 1, 59, 65537, 1, 65595, 65537, 1, 131131, 65537, 1, 196667, 65537, 1, 262203, 65537, 1, 262204, 131073, 1, 327740, 131073, 1, 393276, 131073, 1, 458811, 65537, 1, 524347, 65537, 2, 393275, 65537, 1, 327739, 65537, 1, 65596, 131073, 1, 60, 131073, 1, -65476, 131073, 1, -131012, 131073, 1, 131132, 131073, 1, 196668, 131073, 1, 327738, 65537, 1, 524348, 131073, 2, 458812, 131073, 1, -458693, 1, 1, -524229, 1, 1, -458692, 131073, 1, -524228, 131073, 1, -589764, 131073, 1, -655300, 131073, 1, -720836, 131073, 1, -786372, 131073, 1, -851908, 131073, 1, -917444, 131073, 1, -982980, 131073, 1, -1048516, 131073, 1, -1114052, 131073, 1, -1179588, 131073, 1, -1245124, 131073, 1, -1310660, 131073, 1, -1376196, 131073, 1, -1441732, 131073, 0, -1441733, 1, 0, -1376197, 1, 1, -1310661, 1, 1, -1245125, 1, 1, -1179589, 1, 1, -1114053, 1, 1, -1048517, 1, 1, -982981, 1, 1, -917445, 1, 1, -589765, 1, 1, -655301, 1, 1, -720837, 1, 1, -786373, 1, 1, -851909, 1, 1)
+
+[node name="SwitchScale" parent="." node_paths=PackedStringArray("left_plate", "right_plate") instance=ExtResource("6_rbbbh")]
+position = Vector2(900, 122)
+move_distance = 15
+left_plate = NodePath("Plate")
+right_plate = NodePath("Plate2")
+
+[node name="Plate" parent="SwitchScale" instance=ExtResource("7_kwka8")]
+position = Vector2(-96, 72)
+
+[node name="Plate2" parent="SwitchScale" instance=ExtResource("7_kwka8")]
+position = Vector2(112, 72)
+
+[node name="ScaleSprite" parent="SwitchScale" instance=ExtResource("8_jpho6")]
+offset_left = -13.0
+offset_top = -128.0
+offset_right = 27.0
+offset_bottom = 638.0
+
+[node name="ScaleBarSprite" parent="SwitchScale" instance=ExtResource("9_f0dsm")]
+offset_top = -116.0
+offset_bottom = -108.0
+
+[node name="SwitchScale2" parent="." node_paths=PackedStringArray("left_plate", "right_plate") instance=ExtResource("6_rbbbh")]
+position = Vector2(1508, -159)
+move_distance = 15
+left_plate = NodePath("Plate")
+right_plate = NodePath("Plate2")
+
+[node name="Plate" parent="SwitchScale2" instance=ExtResource("7_kwka8")]
+position = Vector2(-96, 72)
+
+[node name="Plate2" parent="SwitchScale2" instance=ExtResource("7_kwka8")]
+position = Vector2(112, 72)
+
+[node name="ScaleSprite" parent="SwitchScale2" instance=ExtResource("8_jpho6")]
+offset_left = -13.0
+offset_top = -128.0
+offset_right = 27.0
+offset_bottom = 638.0
+
+[node name="ScaleBarSprite" parent="SwitchScale2" instance=ExtResource("9_f0dsm")]
+offset_top = -116.0
+offset_bottom = -108.0
+
+[node name="WoodenBox" parent="." instance=ExtResource("10_xomiq")]
+position = Vector2(43, 208)
+
+[node name="WoodenBox2" parent="." instance=ExtResource("10_xomiq")]
+position = Vector2(1806, -51)
+
+[node name="AluBox" parent="." instance=ExtResource("11_jk6hx")]
+position = Vector2(251, 327)
+
+[node name="DeathPlane" type="Area2D" parent="."]
+position = Vector2(544, 424)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("12_kuiok")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane"]
+position = Vector2(-62, -34)
+shape = SubResource("SegmentShape2D_jd4c0")
+
+[connection signal="body_entered" from="Teleporter" to="Teleporter" method="_on_body_entered"]
+[connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]

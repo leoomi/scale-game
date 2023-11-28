@@ -65,6 +65,7 @@ offset_bottom = 120.0
 [node name="ScaleBarSprite" parent="SwitchScale" instance=ExtResource("9_6t04p")]
 
 [node name="Door" parent="." instance=ExtResource("9_m1lqb")]
+position = Vector2(496, 320)
 
 [node name="WoodenBox" parent="." instance=ExtResource("9_4cr1j")]
 position = Vector2(288, 264)
