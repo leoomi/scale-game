@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctlxdlgt4vqct"]
+[gd_scene load_steps=11 format=3 uid="uid://ctlxdlgt4vqct"]
 
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_tw8j5"]
 [ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="2_0pk6v"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://scripts/DeathPlane.gd" id="6_7jw56"]
 [ext_resource type="PackedScene" uid="uid://c3soxy87awjqt" path="res://scenes/DirtTileMap.tscn" id="7_eoly7"]
 [ext_resource type="PackedScene" uid="uid://ceyera6no833c" path="res://scenes/ThrowableObjects/WoodenBox.tscn" id="7_wbhch"]
+[ext_resource type="AudioStream" uid="uid://drjdqvud64dfm" path="res://musicTest.mp3" id="8_13e1l"]
+[ext_resource type="AudioStream" uid="uid://b07opubn7oi6q" path="res://sfx-punch.mp3" id="9_oqgmn"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_6q5p1"]
 a = Vector2(-576, 0)
@@ -108,5 +110,16 @@ shape = SubResource("SegmentShape2D_6q5p1")
 
 [node name="WoodenBox" parent="." instance=ExtResource("7_wbhch")]
 position = Vector2(664, 336)
+
+[node name="TestMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_13e1l")
+volume_db = -25.0
+autoplay = true
+bus = &"Music"
+
+[node name="Focus" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_oqgmn")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]

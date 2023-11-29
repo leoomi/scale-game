@@ -48,6 +48,7 @@ func check_grounded_state():
 	if not is_on_floor():
 		return
 
+	$SFX/Landing.play()
 	var state = "Idle"
 	
 	if velocity.length() != 0:
@@ -63,9 +64,11 @@ func handle_jump():
 		fsm.transition_to("JumpSquatting")
 
 func short_hop():
+	$SFX/Jump.play()
 	velocity.y = short_jump_velocity
 
 func long_jump():
+	$SFX/Jump.play()
 	velocity.y = jump_velocity
 	
 func double_jump():
@@ -79,6 +82,7 @@ func scale_jump(magnitude: int):
 	if weight.get_total_weight() > magnitude:
 		return
 
+	$SFX/Jump.play()
 	velocity.y = (1 + (magnitude - 1) * scale_jump_scaling) * scale_jump_velocity
 	fsm.transition_to("Jumping")
 
@@ -150,10 +154,12 @@ func handle_collisions_on_bottom():
 func handle_interactions():
 	if Input.is_action_just_pressed("interact"):
 		if picked_up_object != null:
+			$SFX/Throw.play()
 			picked_up_object.handle_picked_up_interaction(self)
 			return
 
 		for body in interaction_area.get_overlapping_bodies():
+			$SFX/Pickup.play()
 			body.handle_interaction(self)
 			return
 		#for area in interaction_area.get_overlapping_areas():
