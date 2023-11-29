@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var weight: Weight = $Weight
 @onready var fsm: StateMachine = $StateMachine
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var area: Area2D = $Area2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var weights_on_top = []
 var current_tween: Tween
@@ -36,6 +37,9 @@ func handle_interaction(player: Player):
 	fsm.transition_to("PickedUp")
 
 func handle_picked_up_interaction(player: Player):
+	if area.has_overlapping_areas() or area.has_overlapping_bodies():
+		return
+
 	collision_shape.disabled = false
 	player.picked_up_object = null
 	player.pickup_transform.set_remote_node("")

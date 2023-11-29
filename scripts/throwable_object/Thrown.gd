@@ -25,7 +25,10 @@ func should_idle():
 	for i in t_object.get_slide_collision_count():
 			var collision = t_object.get_slide_collision(i)
 			var collider = collision.get_collider()
-			if collider is Plate:
+			if not collider is Plate:
+				continue
+			var plate: Plate = collider
+			if plate.current_tween == null or not plate.current_tween.is_running():
 				return true
 
 	return false
@@ -39,5 +42,9 @@ func should_fall():
 			var collider = collision.get_collider()
 			if not collider is Plate:
 				return true
+			else:
+				var plate: Plate = collider
+				if plate.current_tween == null or plate.current_tween.is_running():
+					return true
 
 	return false

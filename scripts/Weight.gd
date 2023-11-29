@@ -39,7 +39,10 @@ func get_total_weight() -> int:
 	var total_weight = weight
 	
 	for weight in weights_on_top:
-		total_weight += weight.weight
+		if weight.owner is Player:
+			total_weight += weight.get_total_weight()
+		else:
+			total_weight += weight.weight
 		
 	return total_weight
 

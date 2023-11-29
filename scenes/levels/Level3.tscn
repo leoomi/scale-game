@@ -1,9 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://davajjbgfm20b"]
+[gd_scene load_steps=11 format=3 uid="uid://davajjbgfm20b"]
 
 [ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="1_nrr7s"]
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_tojh0"]
-[ext_resource type="Script" path="res://scripts/Teleporter.gd" id="2_vvr0q"]
-[ext_resource type="Texture2D" uid="uid://bs53s50oeljus" path="res://1x1.png" id="3_ba0f3"]
 [ext_resource type="PackedScene" uid="uid://c3soxy87awjqt" path="res://scenes/DirtTileMap.tscn" id="4_pgjej"]
 [ext_resource type="PackedScene" uid="uid://cg2wlkajmx72v" path="res://scenes/scale/SwitchScale.tscn" id="5_ijxj8"]
 [ext_resource type="PackedScene" uid="uid://cdxpnd6o42sn2" path="res://scenes/scale/Plate.tscn" id="6_f6vxh"]
@@ -11,9 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://h8wbcij0ikaf" path="res://scenes/scale/ScaleBarSprite.tscn" id="8_h4w34"]
 [ext_resource type="PackedScene" uid="uid://c3nipp8byki1m" path="res://scenes/scale/ScaleSprite.tscn" id="9_0l3k7"]
 [ext_resource type="Script" path="res://scripts/TextureLabelReplacer.gd" id="9_76trd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx5n4"]
-size = Vector2(32, 64)
+[ext_resource type="PackedScene" uid="uid://ds8iutivgoelb" path="res://scenes/Teleporter.tscn" id="10_a27tx"]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_tojh0")
@@ -25,19 +21,6 @@ position = Vector2(39, 307)
 limit_left = -30
 limit_right = 1021
 limit_bottom = 380
-
-[node name="Teleporter" type="Area2D" parent="."]
-position = Vector2(592, 96)
-collision_mask = 8
-script = ExtResource("2_vvr0q")
-scene = "res://scenes/levels/Level4.tscn"
-
-[node name="Sprite2D" type="Sprite2D" parent="Teleporter"]
-scale = Vector2(1.6, 3.2)
-texture = ExtResource("3_ba0f3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
-shape = SubResource("RectangleShape2D_tx5n4")
 
 [node name="TileMap" parent="." instance=ExtResource("4_pgjej")]
 layer_0/tile_data = PackedInt32Array(-1, 131073, 3, 65535, 393217, 3, 131071, 393217, 3, 196607, 393217, 3, 262143, 393217, 3, 327679, 393217, 3, 393215, 393217, 3, 458751, 393217, 3, 524287, 393217, 3, 589823, 393217, 3, 655359, 393217, 3, 720895, 393217, 3, 786431, 131073, 4, 720896, 65537, 7, 720897, 65537, 7, 720898, 65537, 7, 720899, 65537, 7, 720900, 65537, 7, 720901, 65537, 7, 720902, 65537, 7, 720903, 65537, 7, 720904, 65537, 7, 720905, 65537, 7, 720906, 65537, 7, 720907, 65537, 7, 720908, 65537, 7, 720909, 65537, 7, 720910, 327681, 4, 720911, 65537, 2, 720912, 65537, 2, 720913, 65537, 2, 720914, 65537, 2, 720915, 65537, 2, 720916, 131073, 2, 655380, 131073, 1, 589844, 131073, 1, 524308, 131073, 1, 458772, 131073, 1, 393236, 131073, 1, 327700, 131073, 1, 262164, 65537, 6, 196628, 393217, 3, 131092, 393217, 3, 65556, 393217, 3, 20, 393217, 3, -65516, 196609, 3, -65517, 65537, 7, -65518, 65537, 7, -65519, 65537, 7, -65520, 65537, 7, -65521, 65537, 7, -65522, 65537, 7, -65523, 65537, 7, -65524, 65537, 7, -65525, 65537, 7, -65526, 65537, 7, -65527, 65537, 7, -65528, 65537, 7, -65529, 65537, 7, -65530, 65537, 7, -65531, 65537, 7, -65532, 65537, 7, -65533, 65537, 7, -65534, 65537, 7, -65535, 65537, 7, -65536, 65537, 7, 655375, 65537, 1, 589839, 65537, 1, 524303, 65537, 1, 458767, 65537, 1, 393231, 65537, 1, 655374, 1, 1, 589838, 1, 1, 524302, 1, 1, 458766, 1, 1, 393230, 1, 1, 327694, 1, 1, 327695, 65537, 1, 262158, 1, 1, 262159, 65537, 1, 196623, 65537, 0, 196622, 1, 0, 196624, 131073, 0, 262163, 65537, 0, 327699, 65537, 1, 393235, 65537, 1, 458771, 65537, 1, 524307, 65537, 1, 589843, 65537, 1, 655379, 65537, 1, 655378, 65537, 1, 655377, 65537, 1, 655376, 65537, 1, 589840, 65537, 1, 524304, 65537, 1, 458768, 65537, 1, 393232, 65537, 1, 327696, 65537, 1, 262160, 262145, 6, 262161, 65537, 0, 262162, 65537, 0, 327698, 65537, 1, 393234, 65537, 1, 458770, 65537, 1, 524306, 65537, 1, 524305, 65537, 1, 589841, 65537, 1, 393233, 65537, 1, 327697, 65537, 1, 458769, 65537, 1, 589842, 65537, 1)
@@ -89,4 +72,6 @@ autowrap_mode = 0
 script = ExtResource("9_76trd")
 input_prompt_texture_path = "res://assets/InputPrompts/"
 
-[connection signal="body_entered" from="Teleporter" to="Teleporter" method="_on_body_entered"]
+[node name="Teleporter2" parent="." instance=ExtResource("10_a27tx")]
+position = Vector2(592, 96)
+scene = "res://scenes/levels/Level4.tscn"

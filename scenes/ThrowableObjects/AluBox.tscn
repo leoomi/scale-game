@@ -12,3 +12,7 @@ texture = ExtResource("2_imhqe")
 
 [node name="Weight" parent="." index="1"]
 weight = 2
+
+[node name="Area2D" parent="." index="4"]
+collision_layer = 0
+collision_mask = 31

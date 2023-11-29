@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var movement_delta: float = 64
+@export var movement_duration: float = 0.5
 var initial_position: Vector2
 var current_state = false
 var current_tween: Tween
@@ -23,11 +24,11 @@ func open():
 		current_tween.stop()
 	var tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_CUBIC)
 	current_tween = tween
-	tween.tween_property(self, "position", initial_position + Vector2(0, -movement_delta), 0.5)
+	tween.tween_property(self, "position", initial_position + Vector2(0, -movement_delta), movement_duration)
 	
 func close():
 	if current_tween != null && current_tween.is_running():
 		current_tween.stop()
 	var tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_CUBIC)
 	current_tween = tween
-	tween.tween_property(self, "position", initial_position, 0.5)
+	tween.tween_property(self, "position", initial_position, movement_duration)

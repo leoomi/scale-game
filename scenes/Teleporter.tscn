@@ -1,20 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://ds8iutivgoelb"]
 
 [ext_resource type="Script" path="res://scripts/Teleporter.gd" id="1_jma8c"]
-[ext_resource type="Texture2D" uid="uid://bs53s50oeljus" path="res://1x1.png" id="2_iaofx"]
+[ext_resource type="Texture2D" uid="uid://dtk7ndhu3lheo" path="res://assets/teleporter.png" id="2_c5lv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tx5n4"]
 size = Vector2(32, 64)
 
 [node name="Teleporter" type="Area2D"]
-position = Vector2(929, 320)
 collision_mask = 8
 script = ExtResource("1_jma8c")
 scene = "res://scenes/levels/Level1.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.6, 3.2)
-texture = ExtResource("2_iaofx")
+texture_filter = 1
+texture = ExtResource("2_c5lv4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tx5n4")
