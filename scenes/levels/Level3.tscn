@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://davajjbgfm20b"]
+[gd_scene load_steps=12 format=3 uid="uid://davajjbgfm20b"]
 
 [ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="1_nrr7s"]
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_tojh0"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://h8wbcij0ikaf" path="res://scenes/scale/ScaleBarSprite.tscn" id="8_h4w34"]
 [ext_resource type="PackedScene" uid="uid://c3nipp8byki1m" path="res://scenes/scale/ScaleSprite.tscn" id="9_0l3k7"]
 [ext_resource type="Script" path="res://scripts/TextureLabelReplacer.gd" id="9_76trd"]
+[ext_resource type="Theme" uid="uid://cj8a5wdhp0xng" path="res://font_theme.tres" id="9_d7qg4"]
 [ext_resource type="PackedScene" uid="uid://ds8iutivgoelb" path="res://scenes/Teleporter.tscn" id="10_a27tx"]
 
 [node name="Level3" type="Node2D"]
@@ -55,6 +56,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 672.0
 offset_bottom = 353.0
+theme = ExtResource("9_d7qg4")
 
 [node name="Label" type="RichTextLabel" parent="Tutorial"]
 texture_filter = 1
@@ -63,6 +65,7 @@ offset_left = 144.0
 offset_top = 104.0
 offset_right = 509.0
 offset_bottom = 420.0
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "Throwing a heavy object
 to the opposing plate

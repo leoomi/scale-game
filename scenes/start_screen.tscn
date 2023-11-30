@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://1d6c7i1w2xpc"]
+[gd_scene load_steps=10 format=3 uid="uid://1d6c7i1w2xpc"]
 
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_bvypv"]
+[ext_resource type="Theme" uid="uid://cj8a5wdhp0xng" path="res://font_theme.tres" id="1_m2f86"]
 [ext_resource type="AudioStream" uid="uid://drjdqvud64dfm" path="res://musicTest.mp3" id="2_pnuwq"]
 [ext_resource type="AudioStream" uid="uid://b07opubn7oi6q" path="res://sfx-punch.mp3" id="3_bqag3"]
 
@@ -23,12 +24,14 @@ Button/styles/normal = SubResource("StyleBoxFlat_7qawf")
 Button/styles/pressed = SubResource("StyleBoxFlat_encgy")
 
 [node name="startScreen" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_m2f86")
 script = ExtResource("1_bvypv")
 start_level = "res://scenes/levels/Level1.tscn"
 
@@ -46,6 +49,14 @@ offset_bottom = 92.36
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="MainMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Tip the Scales!"
+
+[node name="HSeparator" type="HSeparator" parent="MainMenu"]
+layout_mode = 2
+
 [node name="StartBtn" type="Button" parent="MainMenu"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitBtn")
@@ -54,7 +65,7 @@ theme = SubResource("Theme_1lrru")
 theme_override_colors/font_pressed_color = Color(0.988235, 0.415686, 0.0352941, 1)
 theme_override_colors/font_hover_color = Color(0.968627, 0.823529, 0.0352941, 1)
 theme_override_colors/font_focus_color = Color(0.968627, 0.823529, 0.0352941, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 32
 text = "Start"
 
 [node name="OptionsBtn" type="Button" parent="MainMenu"]
@@ -65,7 +76,7 @@ theme = SubResource("Theme_1lrru")
 theme_override_colors/font_pressed_color = Color(0.988235, 0.415686, 0.0352941, 1)
 theme_override_colors/font_hover_color = Color(0.968627, 0.823529, 0.0352941, 1)
 theme_override_colors/font_focus_color = Color(0.968627, 0.823529, 0.0352941, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 32
 text = "Options"
 
 [node name="QuitBtn" type="Button" parent="MainMenu"]
@@ -76,7 +87,7 @@ theme = SubResource("Theme_1lrru")
 theme_override_colors/font_pressed_color = Color(0.988235, 0.415686, 0.0352941, 1)
 theme_override_colors/font_hover_color = Color(0.968627, 0.823529, 0.0352941, 1)
 theme_override_colors/font_focus_color = Color(0.968627, 0.823529, 0.0352941, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 32
 text = "Quit"
 
 [node name="Options" type="VBoxContainer" parent="."]

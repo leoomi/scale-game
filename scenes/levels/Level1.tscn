@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctlxdlgt4vqct"]
+[gd_scene load_steps=12 format=3 uid="uid://ctlxdlgt4vqct"]
 
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_tw8j5"]
 [ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="2_0pk6v"]
 [ext_resource type="Script" path="res://scripts/TextureLabelReplacer.gd" id="3_0jou3"]
 [ext_resource type="PackedScene" uid="uid://ds8iutivgoelb" path="res://scenes/Teleporter.tscn" id="3_tixus"]
+[ext_resource type="Theme" uid="uid://cj8a5wdhp0xng" path="res://font_theme.tres" id="3_uq8u5"]
 [ext_resource type="Script" path="res://scripts/DeathPlane.gd" id="6_7jw56"]
 [ext_resource type="PackedScene" uid="uid://c3soxy87awjqt" path="res://scenes/DirtTileMap.tscn" id="7_eoly7"]
 [ext_resource type="PackedScene" uid="uid://ceyera6no833c" path="res://scenes/ThrowableObjects/WoodenBox.tscn" id="7_wbhch"]
@@ -30,6 +31,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 672.0
 offset_bottom = 353.0
+theme = ExtResource("3_uq8u5")
 
 [node name="Label" type="RichTextLabel" parent="Tutorial"]
 texture_filter = 1
@@ -38,6 +40,7 @@ offset_left = 29.0
 offset_top = 219.0
 offset_right = 394.0
 offset_bottom = 535.0
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "Tap %j%%z%%south%
 to short jump"
@@ -53,6 +56,7 @@ offset_left = 235.0
 offset_top = 219.0
 offset_right = 600.0
 offset_bottom = 535.0
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "Hold %j%%z%%south%
 to long jump"
@@ -68,6 +72,7 @@ offset_left = 601.0
 offset_top = 194.0
 offset_right = 966.0
 offset_bottom = 510.0
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "Press %k%%x%%west%
 to grab, throw boxes and interact"
@@ -83,6 +88,7 @@ offset_left = 601.0
 offset_top = 136.0
 offset_right = 966.0
 offset_bottom = 452.0
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "Press %r%%select% to reset
 if you get stuck"
