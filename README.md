@@ -3,10 +3,10 @@ A 2D puzzle platformer that uses scales as it main mechanic. Use scales as a swi
 A submission for Github's Game Off 2023 game jam.
 
 # Team
-Leo Omi (SasugaJoker), leoomi on Github - Game design, programming and some art of simpler assets
-- Main art, backgrounds and tilesets
-- Music and sound effects
-- Main menu design and programming
+- Leo Omi (SasugaJoker), leoomi on Github - Game design, programming and some art of simpler assets
+- Adrian Becker (adrxan), @adrx.an on instagram - Art
+- Davi, @davicosta_composer (youtube) - Music and sound effects
+- Leo Stribel, stribel on GitHub - Main menu design and programming
 
 ## Credits
 Adventurer sprite sheet from: https://rvros.itch.io/animated-pixel-hero

@@ -1,15 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctlxdlgt4vqct"]
+[gd_scene load_steps=13 format=3 uid="uid://ctlxdlgt4vqct"]
 
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_tw8j5"]
 [ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="2_0pk6v"]
+[ext_resource type="PackedScene" uid="uid://c1o5y5ycxjn83" path="res://scenes/Background.tscn" id="2_wumjc"]
 [ext_resource type="Script" path="res://scripts/TextureLabelReplacer.gd" id="3_0jou3"]
 [ext_resource type="PackedScene" uid="uid://ds8iutivgoelb" path="res://scenes/Teleporter.tscn" id="3_tixus"]
 [ext_resource type="Theme" uid="uid://cj8a5wdhp0xng" path="res://font_theme.tres" id="3_uq8u5"]
 [ext_resource type="Script" path="res://scripts/DeathPlane.gd" id="6_7jw56"]
 [ext_resource type="PackedScene" uid="uid://c3soxy87awjqt" path="res://scenes/DirtTileMap.tscn" id="7_eoly7"]
 [ext_resource type="PackedScene" uid="uid://ceyera6no833c" path="res://scenes/ThrowableObjects/WoodenBox.tscn" id="7_wbhch"]
-[ext_resource type="AudioStream" uid="uid://drjdqvud64dfm" path="res://musicTest.mp3" id="8_13e1l"]
 [ext_resource type="AudioStream" uid="uid://b07opubn7oi6q" path="res://sfx-punch.mp3" id="9_oqgmn"]
+[ext_resource type="AudioStream" uid="uid://gk813cjlmd8g" path="res://assets/sounds/MainMenu.wav" id="10_5q0ga"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_6q5p1"]
 a = Vector2(-576, 0)
@@ -17,6 +18,8 @@ b = Vector2(480, 0)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_tw8j5")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_wumjc")]
 
 [node name="Player" parent="." instance=ExtResource("2_0pk6v")]
 position = Vector2(39, 307)
@@ -118,7 +121,7 @@ shape = SubResource("SegmentShape2D_6q5p1")
 position = Vector2(664, 336)
 
 [node name="TestMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_13e1l")
+stream = ExtResource("10_5q0ga")
 volume_db = -25.0
 autoplay = true
 bus = &"Music"
