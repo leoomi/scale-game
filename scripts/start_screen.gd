@@ -6,6 +6,7 @@ const MUSIC_BUS = "Music"
 const SFX_BUS = "SFX"
 
 func _ready():
+	Music.on_scene_changed("res://assets/sounds/MainMenu.wav")
 	$MainMenu/StartBtn.grab_focus()
 	
 func FocusEntered():

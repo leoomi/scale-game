@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg6itw08d8csp"]
+[gd_scene load_steps=4 format=3 uid="uid://cg6itw08d8csp"]
 
 [ext_resource type="PackedScene" uid="uid://bnog7mf5kyr1a" path="res://scenes/ThrowableObjects/ThrowableObject.tscn" id="1_sstm8"]
 [ext_resource type="Texture2D" uid="uid://dttp4ou0keb0o" path="res://assets/gold-box.png" id="2_0jv33"]
+[ext_resource type="AudioStream" uid="uid://c1stuwhkdmejc" path="res://assets/sounds/boxes/box_heavy.wav" id="3_s2d0p"]
 
 [node name="GoldenBox" instance=ExtResource("1_sstm8")]
 weight_value = 3
@@ -9,3 +10,6 @@ weight_value = 3
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(1, 1)
 texture = ExtResource("2_0jv33")
+
+[node name="SFX" parent="." index="5"]
+stream = ExtResource("3_s2d0p")

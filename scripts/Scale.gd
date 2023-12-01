@@ -38,6 +38,8 @@ func check_and_move_plates():
 
 ## Clean this shit up later. Maybe add an impulse for the player object
 func move_plates(weight_delta: int) -> Tween:
+	$SFX.stop()
+	$SFX.play(0)
 	var tween = left_plate.move_plate(-weight_delta, weight_delta * -move_distance, move_time)
 	right_plate.move_plate(weight_delta, weight_delta * move_distance, move_time)
 	

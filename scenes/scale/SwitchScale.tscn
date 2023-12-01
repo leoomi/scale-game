@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg2wlkajmx72v"]
+[gd_scene load_steps=5 format=3 uid="uid://cg2wlkajmx72v"]
 
 [ext_resource type="Script" path="res://scripts/SwitchScale.gd" id="1_rx2a8"]
 [ext_resource type="Script" path="res://scripts/debug/debug_info/ScaleDebug.gd" id="2_66wwl"]
+[ext_resource type="AudioStream" uid="uid://cu20ppjf0hiy2" path="res://assets/sounds/level/scale_moving.wav" id="3_2p0hg"]
+[ext_resource type="AudioStream" uid="uid://ockl813yx13o" path="res://assets/sounds/level/finished_puzzle.wav" id="4_70l0x"]
 
 [node name="SwitchScale" type="Node2D"]
 script = ExtResource("1_rx2a8")
@@ -23,5 +25,13 @@ offset_top = -191.0
 offset_right = -197.0
 offset_bottom = -165.0
 text = ":)"
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2p0hg")
+volume_db = -10.4
+
+[node name="PuzzleSolved" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_70l0x")
+volume_db = -10.4
 
 [connection signal="movement_done" from="." to="." method="_on_movement_done"]

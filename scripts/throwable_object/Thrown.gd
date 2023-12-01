@@ -7,10 +7,12 @@ func enter(_msg = {}):
 
 func physics_update(delta):
 	if should_idle():
+		t_object.play_fall_sound()
 		t_object.velocity = Vector2.ZERO
 		t_object.fsm.transition_to("Idle")
 
 	if should_fall():
+		t_object.play_fall_sound()
 		t_object.velocity = Vector2.ZERO
 		t_object.fsm.transition_to("Falling")
 

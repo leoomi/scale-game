@@ -68,7 +68,7 @@ func short_hop():
 	velocity.y = short_jump_velocity
 
 func long_jump():
-	$SFX/Jump.play()
+	$SFX/LongJump.play()
 	velocity.y = jump_velocity
 	
 func double_jump():
@@ -159,7 +159,14 @@ func handle_interactions():
 			return
 
 		for body in interaction_area.get_overlapping_bodies():
-			$SFX/Pickup.play()
+			print(body)
+			match (body.weight_value):
+				1:
+					$SFX/PickupLight.play()
+				2:
+					$SFX/PickupMedium.play()
+				3:
+					$SFX/PickupHeavy.play()
 			body.handle_interaction(self)
 			return
 		#for area in interaction_area.get_overlapping_areas():

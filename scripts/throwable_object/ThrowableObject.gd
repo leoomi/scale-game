@@ -73,3 +73,6 @@ func should_idle():
 				return true
 
 	return false
+
+func play_fall_sound():
+	$SFX.play()

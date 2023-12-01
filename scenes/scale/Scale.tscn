@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0dxj4iobbqha"]
+[gd_scene load_steps=5 format=3 uid="uid://c0dxj4iobbqha"]
 
 [ext_resource type="Script" path="res://scripts/Scale.gd" id="1_tswx3"]
 [ext_resource type="PackedScene" uid="uid://c3nipp8byki1m" path="res://scenes/scale/ScaleSprite.tscn" id="3_8g4nj"]
 [ext_resource type="Script" path="res://scripts/debug/debug_info/ScaleDebug.gd" id="3_pikri"]
+[ext_resource type="AudioStream" uid="uid://cu20ppjf0hiy2" path="res://assets/sounds/level/scale_moving.wav" id="4_05cy6"]
 
 [node name="Scale" type="Node2D"]
 script = ExtResource("1_tswx3")
@@ -26,3 +27,6 @@ offset_bottom = -165.0
 text = ":)"
 
 [node name="ScaleSprite" parent="." instance=ExtResource("3_8g4nj")]
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_05cy6")

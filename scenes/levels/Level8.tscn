@@ -19,6 +19,7 @@ b = Vector2(1038, 2)
 
 [node name="Level8" type="Node2D"]
 script = ExtResource("1_gk61q")
+music_path = "res://assets/sounds/Dungeon.wav"
 
 [node name="Player" parent="." instance=ExtResource("2_xav12")]
 position = Vector2(48, 312)

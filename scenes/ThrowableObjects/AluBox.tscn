@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c24tnyuc1g1on"]
+[gd_scene load_steps=4 format=3 uid="uid://c24tnyuc1g1on"]
 
 [ext_resource type="PackedScene" uid="uid://bnog7mf5kyr1a" path="res://scenes/ThrowableObjects/ThrowableObject.tscn" id="1_c2ef5"]
 [ext_resource type="Texture2D" uid="uid://d17vtixkhp30a" path="res://assets/alu-box.png" id="2_imhqe"]
+[ext_resource type="AudioStream" uid="uid://ctj8df8odmi5k" path="res://assets/sounds/boxes/box_medium.wav" id="3_fibxv"]
 
 [node name="AluBox" instance=ExtResource("1_c2ef5")]
 weight_value = 2
@@ -16,3 +17,6 @@ weight = 2
 [node name="Area2D" parent="." index="4"]
 collision_layer = 0
 collision_mask = 31
+
+[node name="SFX" parent="." index="5"]
+stream = ExtResource("3_fibxv")

@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://1d6c7i1w2xpc"]
+[gd_scene load_steps=9 format=3 uid="uid://1d6c7i1w2xpc"]
 
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_bvypv"]
 [ext_resource type="Theme" uid="uid://cj8a5wdhp0xng" path="res://font_theme.tres" id="1_m2f86"]
-[ext_resource type="AudioStream" uid="uid://drjdqvud64dfm" path="res://musicTest.mp3" id="2_pnuwq"]
-[ext_resource type="AudioStream" uid="uid://b07opubn7oi6q" path="res://sfx-punch.mp3" id="3_bqag3"]
+[ext_resource type="AudioStream" uid="uid://cxoy7we7yx5mh" path="res://assets/sounds/level/menu_clicks.wav" id="3_s5xlg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yar0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -105,7 +104,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Options"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 32
 text = "Options"
 horizontal_alignment = 1
 
@@ -142,14 +141,8 @@ focus_neighbor_bottom = NodePath("../../Back")
 min_value = -15.0
 max_value = 15.0
 
-[node name="TestMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_pnuwq")
-volume_db = -25.0
-autoplay = true
-bus = &"Music"
-
 [node name="Focus" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_bqag3")
+stream = ExtResource("3_s5xlg")
 volume_db = -5.0
 bus = &"SFX"
 
