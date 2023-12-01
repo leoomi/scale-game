@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://scripts/player/Falling.gd" id="8_jd3pa"]
 [ext_resource type="Script" path="res://scripts/player/WallSliding.gd" id="9_qja03"]
 [ext_resource type="Script" path="res://scripts/player/WallJumping.gd" id="10_ei8od"]
-[ext_resource type="Script" path="res://Hurt.gd" id="11_5xuvq"]
 [ext_resource type="Script" path="res://scripts/player/Inventory.gd" id="11_7m6qk"]
 [ext_resource type="PackedScene" uid="uid://bkwjtmoxihqhi" path="res://scenes/Weight.tscn" id="13_aem74"]
 [ext_resource type="AudioStream" uid="uid://c8rhfrx6l2g8k" path="res://assets/sounds/player/player_jump.wav" id="14_xgkqy"]
@@ -23,6 +22,24 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hibgp"]
 size = Vector2(10, 29)
+
+[sub_resource type="GDScript" id="GDScript_cogws"]
+script/source = "class_name Hurt
+extends PlayerState
+
+func enter(_msg := {}) -> void:
+	player.animation.play(\"hurt\")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func physics_update(delta):
+	if player.is_on_floor():
+		player.velocity = Vector2.ZERO
+		player.fsm.transition_to(\"Idle\")
+
+	player.apply_gravity(delta)
+
+	player.move_and_slide()
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i0l0e"]
 radius = 5.0
@@ -285,7 +302,7 @@ script = ExtResource("9_qja03")
 script = ExtResource("10_ei8od")
 
 [node name="Hurt" type="Node" parent="StateMachine"]
-script = ExtResource("11_5xuvq")
+script = SubResource("GDScript_cogws")
 
 [node name="InteractionArea" type="Area2D" parent="."]
 collision_layer = 0
