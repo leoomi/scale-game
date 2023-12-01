@@ -1,8 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://1d6c7i1w2xpc"]
+[gd_scene load_steps=13 format=3 uid="uid://dssc3wq6tx33s"]
 
 [ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_bvypv"]
 [ext_resource type="Theme" uid="uid://cj8a5wdhp0xng" path="res://font_theme.tres" id="1_m2f86"]
+[ext_resource type="PackedScene" uid="uid://c3nipp8byki1m" path="res://scenes/scale/ScaleSprite.tscn" id="3_7lmcc"]
 [ext_resource type="AudioStream" uid="uid://cxoy7we7yx5mh" path="res://assets/sounds/level/menu_clicks.wav" id="3_s5xlg"]
+[ext_resource type="PackedScene" uid="uid://c1o5y5ycxjn83" path="res://scenes/Background.tscn" id="4_k8w1t"]
+[ext_resource type="PackedScene" uid="uid://h8wbcij0ikaf" path="res://scenes/scale/ScaleBarSprite.tscn" id="4_wpl5u"]
+[ext_resource type="Texture2D" uid="uid://dixshrtdd60kr" path="res://assets/plate.png" id="5_pcejp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yar0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -33,6 +37,34 @@ grow_vertical = 2
 theme = ExtResource("1_m2f86")
 script = ExtResource("1_bvypv")
 start_level = "res://scenes/levels/Level1.tscn"
+
+[node name="ScaleSprite" parent="." instance=ExtResource("3_7lmcc")]
+layout_mode = 1
+offset_top = -130.0
+offset_bottom = 143.0
+
+[node name="ScaleBarSprite" parent="." instance=ExtResource("4_wpl5u")]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 69.0
+offset_right = 430.0
+offset_bottom = 77.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 77.0
+offset_right = 265.0
+offset_bottom = 269.0
+texture = ExtResource("5_pcejp")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 77.0
+offset_right = 474.0
+offset_bottom = 269.0
+texture = ExtResource("5_pcejp")
 
 [node name="MainMenu" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -143,7 +175,7 @@ max_value = 15.0
 
 [node name="Focus" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_s5xlg")
-volume_db = -5.0
+volume_db = -10.426
 bus = &"SFX"
 
 [node name="Back" type="Button" parent="."]
@@ -163,6 +195,8 @@ theme_override_colors/font_hover_color = Color(0.968627, 0.823529, 0.0352941, 1)
 theme_override_colors/font_focus_color = Color(0.968627, 0.823529, 0.0352941, 1)
 theme_override_font_sizes/font_size = 18
 text = "Back"
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_k8w1t")]
 
 [connection signal="mouse_entered" from="MainMenu/StartBtn" to="." method="_on_start_btn_mouse_entered"]
 [connection signal="pressed" from="MainMenu/StartBtn" to="." method="_on_start_btn_pressed"]

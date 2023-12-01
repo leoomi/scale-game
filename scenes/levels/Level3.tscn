@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://davajjbgfm20b"]
+[gd_scene load_steps=13 format=3 uid="uid://davajjbgfm20b"]
 
 [ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="1_nrr7s"]
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_tojh0"]
+[ext_resource type="PackedScene" uid="uid://c1o5y5ycxjn83" path="res://scenes/Background.tscn" id="2_l22iy"]
 [ext_resource type="PackedScene" uid="uid://c3soxy87awjqt" path="res://scenes/DirtTileMap.tscn" id="4_pgjej"]
 [ext_resource type="PackedScene" uid="uid://cg2wlkajmx72v" path="res://scenes/scale/SwitchScale.tscn" id="5_ijxj8"]
 [ext_resource type="PackedScene" uid="uid://cdxpnd6o42sn2" path="res://scenes/scale/Plate.tscn" id="6_f6vxh"]
@@ -14,6 +15,8 @@
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_tojh0")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_l22iy")]
 
 [node name="Player" parent="." instance=ExtResource("1_nrr7s")]
 position = Vector2(39, 307)

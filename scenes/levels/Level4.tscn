@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cutsd8tdgsfjt"]
+[gd_scene load_steps=14 format=3 uid="uid://cutsd8tdgsfjt"]
 
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_kndyk"]
+[ext_resource type="PackedScene" uid="uid://c1o5y5ycxjn83" path="res://scenes/Background.tscn" id="2_gn6kb"]
 [ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="2_tatar"]
 [ext_resource type="PackedScene" uid="uid://c3soxy87awjqt" path="res://scenes/DirtTileMap.tscn" id="5_gpb7c"]
 [ext_resource type="PackedScene" uid="uid://cg2wlkajmx72v" path="res://scenes/scale/SwitchScale.tscn" id="6_tedna"]
@@ -16,8 +17,10 @@
 a = Vector2(-576, 0)
 b = Vector2(1038, 2)
 
-[node name="Level7" type="Node2D"]
+[node name="Level4" type="Node2D"]
 script = ExtResource("1_kndyk")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_gn6kb")]
 
 [node name="Player" parent="." instance=ExtResource("2_tatar")]
 position = Vector2(54, 241)

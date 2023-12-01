@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3fmmidqb83a5"]
+[gd_scene load_steps=14 format=3 uid="uid://c3fmmidqb83a5"]
 
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_5vmoq"]
 [ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="2_akh2g"]
+[ext_resource type="PackedScene" uid="uid://c1o5y5ycxjn83" path="res://scenes/Background.tscn" id="2_v8k73"]
 [ext_resource type="PackedScene" uid="uid://c3soxy87awjqt" path="res://scenes/DirtTileMap.tscn" id="5_77qpg"]
 [ext_resource type="PackedScene" uid="uid://cg2wlkajmx72v" path="res://scenes/scale/SwitchScale.tscn" id="6_bbfqw"]
 [ext_resource type="PackedScene" uid="uid://cdxpnd6o42sn2" path="res://scenes/scale/Plate.tscn" id="7_vpmpa"]
@@ -19,6 +20,8 @@ b = Vector2(1038, 2)
 [node name="Level5" type="Node2D"]
 script = ExtResource("1_5vmoq")
 music_path = "res://assets/sounds/Dungeon.wav"
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_v8k73")]
 
 [node name="Player" parent="." instance=ExtResource("2_akh2g")]
 position = Vector2(43, 335)

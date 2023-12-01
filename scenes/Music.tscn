@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbmr2t0gqryno"]
 
 [ext_resource type="AudioStream" uid="uid://gk813cjlmd8g" path="res://assets/sounds/MainMenu.wav" id="1_dvdju"]
-[ext_resource type="Script" path="res://scenes/MusicManager.gd" id="2_7ytv1"]
+[ext_resource type="Script" path="res://scripts/MusicManager.gd" id="2_b1aet"]
 
 [node name="Music" type="AudioStreamPlayer"]
 stream = ExtResource("1_dvdju")
 volume_db = -10.0
 autoplay = true
 bus = &"Music"
-script = ExtResource("2_7ytv1")
+script = ExtResource("2_b1aet")

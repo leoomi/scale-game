@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://caagul5heeuly"]
+[gd_scene load_steps=15 format=3 uid="uid://caagul5heeuly"]
 
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_gk61q"]
+[ext_resource type="PackedScene" uid="uid://c1o5y5ycxjn83" path="res://scenes/Background.tscn" id="2_cmfaa"]
 [ext_resource type="PackedScene" uid="uid://0btuj42nxe1i" path="res://scenes/Player.tscn" id="2_xav12"]
 [ext_resource type="PackedScene" uid="uid://c3soxy87awjqt" path="res://scenes/DirtTileMap.tscn" id="3_8h84w"]
 [ext_resource type="PackedScene" uid="uid://cg2wlkajmx72v" path="res://scenes/scale/SwitchScale.tscn" id="4_4c2hq"]
@@ -20,6 +21,8 @@ b = Vector2(1038, 2)
 [node name="Level8" type="Node2D"]
 script = ExtResource("1_gk61q")
 music_path = "res://assets/sounds/Dungeon.wav"
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_cmfaa")]
 
 [node name="Player" parent="." instance=ExtResource("2_xav12")]
 position = Vector2(48, 312)
@@ -75,7 +78,7 @@ shape = SubResource("SegmentShape2D_jd4c0")
 
 [node name="Teleporter" parent="." instance=ExtResource("11_62i2g")]
 position = Vector2(592, -129)
-scene = "res://scenes/levels/Level8.tscn"
+scene = "res://scenes/Ending.tscn"
 
 [node name="AluBox" parent="." instance=ExtResource("12_3vybb")]
 position = Vector2(528, 240)
